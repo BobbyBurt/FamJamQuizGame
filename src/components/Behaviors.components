@@ -1,0 +1,249 @@
+{
+    "components": [
+        {
+            "name": "PushOnClick",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "PreloadText",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Text",
+            "properties": []
+        },
+        {
+            "name": "Align",
+            "baseClass": "UserComponent",
+            "gameObjectType": "any",
+            "properties": [
+                {
+                    "name": "up",
+                    "label": "Up",
+                    "tooltip": "Up.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "middle",
+                    "label": "Middle",
+                    "tooltip": "Middle.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "down",
+                    "label": "Down",
+                    "tooltip": "Down.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "left",
+                    "label": "Left",
+                    "tooltip": "Left.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "center",
+                    "label": "Center",
+                    "tooltip": "Center.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "right",
+                    "label": "Right",
+                    "tooltip": "Right.",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "horizontalOffset",
+                    "label": "Horizontal Offset",
+                    "tooltip": "The horizontal offset if left or right aligned.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "verticalOffset",
+                    "label": "Vertical Offset",
+                    "tooltip": "The vertical offset if up or down is aligned.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "PhysicsBody",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "offsetX",
+                    "label": "offsetX",
+                    "tooltip": "offsetX",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "offsetY",
+                    "label": "offsetY",
+                    "tooltip": "offsetY",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "height",
+                    "label": "height",
+                    "tooltip": "height",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "width",
+                    "label": "width",
+                    "tooltip": "width",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "gravity",
+                    "label": "gravity",
+                    "tooltip": "gravity",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ScrollFactor",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "factorX",
+                    "label": "x",
+                    "tooltip": "",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "factorY",
+                    "label": "y",
+                    "tooltip": "",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "MobileDependent",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Text | Phaser.GameObjects.Image | Phaser.GameObjects.BitmapText | Phaser.GameObjects.Sprite | Phaser.GameObjects.Rectangle",
+            "properties": [
+                {
+                    "name": "activeIfMobile",
+                    "label": "Active If Mobile",
+                    "tooltip": "enables when mobile, disables when desktop. Vice-versa if false.",
+                    "defValue": true,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "visibleIfMobile",
+                    "label": "Visible if Mobile",
+                    "tooltip": "set visible when mobile",
+                    "defValue": true,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "ignoreVisibility",
+                    "label": "Ignore Visibility",
+                    "tooltip": "Does not set visible",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "MobileButton",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Rectangle",
+            "properties": [
+                {
+                    "name": "input",
+                    "label": "Input",
+                    "tooltip": "Which input in PlayerPrefab does this button correlate to",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - User Components Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.UserComponents"
+    },
+    "outputLang": "TYPE_SCRIPT",
+    "exportClass": true,
+    "autoImport": true
+}
