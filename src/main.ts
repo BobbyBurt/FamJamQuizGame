@@ -1,5 +1,8 @@
+import { Scene } from 'phaser';
 import Game from './scenes/Game';
 import Preload from './scenes/Preload';
+import PluginTest from 'plugins/PluginTest'
+import ScenePluginTest from './plugins/ScenePluginTest';
 
 window.addEventListener('load', function ()
 {
@@ -21,6 +24,25 @@ window.addEventListener('load', function ()
         	height: 1080,
 			// autoRound: true
 		},
+		plugins:
+		{
+			global:
+			[
+				{
+					key: 'plugin-test', 
+					plugin: PluginTest, 
+					start: true
+				}
+			],
+			scene:
+			[
+				{
+					key: 'scene-plugin-test',
+					plugin: ScenePluginTest,
+					mapping: 'scenePluginMap'
+				}
+			]
+		}
 	});
 	
 	game.scene.add("boot", Boot, true);

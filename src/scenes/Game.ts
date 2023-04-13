@@ -5,6 +5,10 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+
+import PluginTest from "plugins/PluginTest";
+import ScenePluginTest from "~/plugins/ScenePluginTest";
+
 /* END-USER-IMPORTS */
 
 export default class Game extends Phaser.Scene {
@@ -587,6 +591,12 @@ export default class Game extends Phaser.Scene {
 		famJam_logo.scaleX = 0.7593104765732959;
 		famJam_logo.scaleY = 0.7593104765732959;
 
+		// questionNumberText
+		const questionNumberText = this.add.text(1194, 43, "", {});
+		questionNumberText.setOrigin(0.5, 0);
+		questionNumberText.text = "Question 1";
+		questionNumberText.setStyle({ "align": "center", "fontFamily": "arial", "fontSize": "40px", "fontStyle": "bold" });
+
 		this.answer1Backing = answer1Backing;
 		this.answer1Text = answer1Text;
 		this.answer2Backing = answer2Backing;
@@ -636,6 +646,7 @@ export default class Game extends Phaser.Scene {
 		this.blueBackingDown = blueBackingDown;
 		this.blueBackingLeft = blueBackingLeft;
 		this.instructionText = instructionText;
+		this.questionNumberText = questionNumberText;
 
 		this.events.emit("scene-awake");
 	}
@@ -689,101 +700,193 @@ export default class Game extends Phaser.Scene {
 	private blueBackingDown!: Phaser.GameObjects.Rectangle;
 	private blueBackingLeft!: Phaser.GameObjects.Rectangle;
 	private instructionText!: Phaser.GameObjects.Text;
+	private questionNumberText!: Phaser.GameObjects.Text;
 
 	/* START-USER-CODE */
 
 /*
 	0		1		2		3		4		5		6		7		8		9		10		11		12		13		14		15		16
 	[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
+	   [o] [ ]
+	[ ][ ] [ ][o]
+	   [ ] [ ]
+	[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
+	   [ ] [o]
+	[ ][ ] [ ][ ]
+	   [o] [ ]
+	[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+
+	   [ ] [ ]
+	[ ][ ] [ ][o]
+	   [ ] [o]
+	[false, false, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
+	   [ ] [ ]
+	[o][ ] [o][ ]
+	   [ ] [ ]
+	[true, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+
+	   [ ] [o]
+	[ ][ ] [ ][ ]
+	   [o] [ ]
+	[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+
+	   [ ] [o]
+	[ ][ ] [ ][ ]
+	   [ ] [o]
+	[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
+	   [ ] [ ]
+	[ ][ ] [ ][o]
+	   [o] [ ]
+	[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+
+
+	   [ ] [ ]
+	[ ][o] [ ][ ]
+	   [o] [ ]
+	[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	true, 	false],
+
+	   [ ] [ ]
+	[ ][ ] [ ][ ]
+	   [o] [o]
+	[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+
+	   [o] [ ]
+	[ ][ ] [ ][ ]
+	   [ ] [o]
+	[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
+	   [ ] [ ]
+	[o][ ] [ ][o]
+	   [ ] [ ]
+	[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+
 */
 
 // question data
 
 	private answer1 = [
-		'Sixty-three',
-		'Nineveh',
-		'Psalm',
-		'Elijah',
-		'Syntactic',
-		'Patmos',
-		'Storge',
-		'mene mene tekel uparsin'
+		'Reveal Himself',
+		'39',
+		`Jesus' friend & eyewitness`,
+		'John the Baptist',
+		'Observe, Interpret, Apply',
+		'Makes money',
+		'How to be smart',
+		'Memorizing bible verses',
+		'Learning',
+		'Epistle',
+		'Jonah',
+		'2 hours'
 	]
 	private answer1Buttons = [
 	//  0		1		2		3		4		5		6		7		8		9		10		11		12		13		14		15		16
-		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
 		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
 		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
-		[true, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
-		[false, true, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[true, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+
 	]
 	private answer2 = [
-		'Fourty-two',
-		'Tarsus',
-		'Colossians',
-		'Philo',
-		'Simplistic',
-		'Ephesus',
-		'Eros',
-		'eli eli sabatchani'
+		'Speak',
+		'66',
+		'John cannot lie',
+		'Pastor Mike',
+		'Read, think, say',
+		'Helpful',
+		'How to judge others',
+		'Christian truth',
+		'Proving that you are right',
+		'Letters of the prophets',
+		'Malachi',
+		'200 years'
 	]
 	private answer2Buttons = [
 	//  0		1		2		3		4		5		6		7		8		9		10		11		12		13		14		15		16
-		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[true, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
 		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
 		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
-		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
-		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+
 	]
 	private answer3 = [
-		'Sixty-six',
-		'Rome',
-		'Jude',
-		'Moses',
-		'Synaptic',
-		'Crete',
-		'Philia',
-		'mene une tekel parsin'
+		'Lie',
+		'27',
+		'He was a disciple',
+		'Jesus',
+		'Read, interpret, share',
+		'Interesting',
+		'How to be cool',
+		'Doctors degree',
+		'Correcting our wrongs',
+		'Episode',
+		'John',
+		'300 years'
 	]
 	private answer3Buttons = [
 	//  0		1		2		3		4		5		6		7		8		9		10		11		12		13		14		15		16
-		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
 		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, true, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[true, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	true, 	false],
-		[false, true, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	true, 	false],
+		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	true, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
 	]
 	private answer4 = [
-		'Seventy-one',
-		'Tarshish',
-		'Galatians',
+		'Judge',
+		'74',
+		'John swore it was true',
+		'The Holy Spirit',
+		'Observe, interpret, forget',
+		'Awesome',
+		'How to obey God',
+		'Knowing what sin is',
+		'Correcting others',
+		'Gospel',
 		'Jesus',
-		'Synoptic',
-		'Phillipi',
-		'Agape',
-		'Be excellent to each other'
+		'400 years'
 	]
 	private answer4Buttons = [
 	//  0		1		2		3		4		5		6		7		8		9		10		11		12		13		14		15		16
-		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
-		[true, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
-		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	true, 	false],
 		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
 		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
-		[false, false, 	false, 	true, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
-		[true, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false],
+		[false, false, 	false, 	true, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	false, 	true, 	false, 	false, 	false, 	false],
 	]
-	private correctAnswerIndex = [3, 4, 1, 1, 4, 1, 3, 1]
+	private correctAnswerIndex = [3, 2, 1, 4, 1, 2, 4, 2, 3, 1, 2, 4]
 
 // other
 
@@ -796,11 +899,27 @@ export default class Game extends Phaser.Scene {
 	private downButtons = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 	private beginButtons = [true, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false];
 
+	scenePluginMap!:ScenePluginTest;
+
 	create()
 	{
 		console.debug('create');
 
 		this.editorCreate();
+
+	// // plugin test
+	// 	let pluginTest = this.plugins.get('plugin-test', true) as PluginTest;
+	// 	pluginTest.testFunction(this.instructionText);
+
+	// // scene plugin test
+	// 	console.debug(this.plugins.scenePlugins);
+	// 	console.debug(this.scenePluginMap);
+	// 	this.scenePluginMap.testFunction(this.answer1Text);
+
+	// 	this.events.on('A', () =>
+	// 	{
+	// 		console.log('game A');
+	// 	})
 
 		this.setupButtonBackings();
 		this.setupAnswerBackings();
@@ -828,7 +947,63 @@ export default class Game extends Phaser.Scene {
 			this.checkInput();
 		});
 
+	// TEMP - keyboard question select
+		this.input.keyboard.on('keydown', (event:any)=>
+		{
+			console.debug(event);
+
+			if (this.phase !== 'waiting')
+				return;
+
+			switch(event.key)
+			{
+				case '1':
+					this.setCurrentQuestion(0);
+					break;
+				case '2':
+					this.setCurrentQuestion(1);
+					break;
+				case '3':
+					this.setCurrentQuestion(2);
+					break;
+				case '4':
+					this.setCurrentQuestion(3);
+					break;
+				case '5':
+					this.setCurrentQuestion(4);
+					break;
+				case '6':
+					this.setCurrentQuestion(5);
+					break;
+				case '7':
+					this.setCurrentQuestion(6);
+					break;
+				case '8':
+					this.setCurrentQuestion(7);
+					break;
+				case '9':
+					this.setCurrentQuestion(8);
+					break;
+				case '0':
+					this.setCurrentQuestion(9);
+					break;
+				case '-':
+					this.setCurrentQuestion(10);
+					break;
+				case '=':
+					this.setCurrentQuestion(11);
+					break;
+				
+			}
+		})
+
 		this.setWaiting();
+	}
+
+	setCurrentQuestion(question:number)
+	{
+		this.currentQuestion = question;
+		this.questionNumberText.setText(`Question ${this.currentQuestion + 1}`)
 	}
 
 	setAnswers()
@@ -953,7 +1128,9 @@ export default class Game extends Phaser.Scene {
 
 			this.time.addEvent({ delay: 4000, callback: () => 
 			{
-				this.currentQuestion++;
+				// this.currentQuestion++;
+				if (this.currentQuestion !== 11)
+					this.setCurrentQuestion(this.currentQuestion + 1);
 
 				this.setWaiting();
 			}});
