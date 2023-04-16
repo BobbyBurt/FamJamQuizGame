@@ -1,21 +1,19 @@
 export default class PluginTest extends Phaser.Plugins.BasePlugin {
+  constructor(pluginManager: Phaser.Plugins.PluginManager) {
+    super(pluginManager);
+  }
 
-    constructor(pluginManager: Phaser.Plugins.PluginManager) {
-        super(pluginManager);
-    }
+  start() {
+    // var eventEmitter = this.game.events;
+    // eventEmitter.on('destroy', this.destroy, this);
+    // eventEmitter.on('update', this.update, this);
 
-    start() {
-        // var eventEmitter = this.game.events;
-        // eventEmitter.on('destroy', this.destroy, this);
-        // eventEmitter.on('update', this.update, this);
+    console.debug("plugin reporting");
+  }
 
-        console.debug('plugin reporting');
-    }
+  testFunction(text: Phaser.GameObjects.Text) {
+    console.debug("plugin funciton called");
 
-    testFunction(text: Phaser.GameObjects.Text)
-    {
-        console.debug('plugin funciton called');
-
-        text.alpha = .5;
-    }
+    text.alpha = 0.5;
+  }
 }

@@ -1,10 +1,12 @@
 # Changelog
 
-# Version 1 Prototype - 
+# Version 2 -
 
-desc.
+Following the first prototype which was played by my family and then the kids, this version adds important conviencence features.
 
 ### Changed
+
+- Code is now auto formatted to Prettier convention.
 
 ### Added
 
