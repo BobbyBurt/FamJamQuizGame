@@ -10,27 +10,6 @@
             },
             {
                 "url": [
-                    "assets/audio/1-30 The 65th Super Fun Quirk Quiz.mp3"
-                ],
-                "type": "audio",
-                "key": "theme"
-            },
-            {
-                "url": [
-                    "assets/audio/1-31 Answer that Question!.mp3"
-                ],
-                "type": "audio",
-                "key": "question"
-            },
-            {
-                "url": [
-                    "assets/audio/2-10 Oh No!.mp3"
-                ],
-                "type": "audio",
-                "key": "incorrect"
-            },
-            {
-                "url": [
                     "assets/audio/45. Winner Drumroll (Party Match).mp3"
                 ],
                 "type": "audio",
@@ -45,6 +24,32 @@
                 "url": "assets/FamJam-logo-simplified.png",
                 "type": "image",
                 "key": "FamJam-logo-simplified"
+            },
+            {
+                "url": [
+                    "assets/audio/2-10 Oh No!.mp3"
+                ],
+                "type": "audio",
+                "key": "incorrect"
+            },
+            {
+                "url": [
+                    "assets/audio/1-31 Answer that Question!.mp3"
+                ],
+                "type": "audio",
+                "key": "question"
+            },
+            {
+                "url": "assets/quizzes/test-quiz.json",
+                "type": "json",
+                "key": "test-quiz"
+            },
+            {
+                "url": [
+                    "assets/audio/1-30 The 65th Super Fun Quirk Quiz.mp3"
+                ],
+                "type": "audio",
+                "key": "theme"
             }
         ]
     },
