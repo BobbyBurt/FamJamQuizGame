@@ -58,7 +58,15 @@ export class InputManager {
       }
     );
     this.scene.input.keyboard.on("keydown", (event: any) => {
-      this.updateInputFromKeyboard(true, event.key)
+      // FIXME: this event dispatches on every frame the input is true, not just on down
+      this.updateInputFromKeyboard(true, event.key);
+      console.debug(this.currentInput);
+      this.checkInputCombos();
+    });
+    this.scene.input.keyboard.on("keyup", (event: any) => {
+      this.updateInputFromKeyboard(false, event.key);
+      console.debug(this.currentInput);
+      this.checkInputCombos();
     });
   }
 
@@ -91,9 +99,33 @@ export class InputManager {
     }
   }
 
-  updateInputFromKeyboard(down: boolean, key: 'string')
-  {
-
+  updateInputFromKeyboard(down: boolean, key: string) {
+    switch (key) {
+      case "w":
+        this.currentInput.blue.up = down;
+        break;
+      case "a":
+        this.currentInput.blue.left = down;
+        break;
+      case "s":
+        this.currentInput.blue.centre = down;
+        break;
+      case "z":
+        this.currentInput.blue.down = down;
+        break;
+      case "e":
+        this.currentInput.orange.up = down;
+        break;
+      case "f":
+        this.currentInput.orange.right = down;
+        break;
+      case "d":
+        this.currentInput.orange.centre = down;
+        break;
+      case "x":
+        this.currentInput.orange.down = down;
+        break;
+    }
   }
 
   /**

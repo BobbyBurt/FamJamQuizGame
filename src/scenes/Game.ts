@@ -1553,7 +1553,7 @@ export default class Game extends Phaser.Scene {
 
     // TEMP - keyboard question select
     this.input.keyboard.on("keydown", (event: any) => {
-      console.debug(event);
+      // console.debug(event);
 
       if (this.phase !== "waiting") return;
 
