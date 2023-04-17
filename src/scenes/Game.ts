@@ -6,7 +6,8 @@ import Phaser from "phaser";
 /* START-USER-IMPORTS */
 
 import PluginTest from "plugins/PluginTest";
-import { QuizData } from "~/components/QuizDataUtil";
+import { InputManager, twoButtonInputCombos } from "~/components/InputManager";
+import { QuizData } from "../components/quizDataUtil";
 import ScenePluginTest from "~/plugins/ScenePluginTest";
 
 /* END-USER-IMPORTS */
@@ -1441,6 +1442,9 @@ export default class Game extends Phaser.Scene {
   // quiz data
   private quizData: QuizData;
 
+  // input
+  private inputManager:InputManager;
+
   // game state
   private currentQuestion = 0;
   private phase: "waiting" | "deciding" | "drumroll" | "reveal" = "waiting";
@@ -1513,6 +1517,8 @@ export default class Game extends Phaser.Scene {
 
     this.setupButtonBackings();
     this.setupAnswerBackings();
+
+    this.inputManager = new InputManager(this);
 
     this.input.gamepad.on(
       "down",

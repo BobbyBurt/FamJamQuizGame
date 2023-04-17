@@ -23,6 +23,6 @@ export default class ScenePluginTest extends Phaser.Plugins.ScenePlugin {
   }
 
   update(time: number, delta: number) {
-    console.log("update!");
+    // console.log("update!");
   }
 }
