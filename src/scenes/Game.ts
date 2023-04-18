@@ -1491,7 +1491,9 @@ export default class Game extends Phaser.Scene {
     false,
   ];
 
-  scenePluginMap!: ScenePluginTest;
+  
+  private scenePluginMap!: ScenePluginTest;
+  private NGIOPlugin!: PluginTest;
 
   create() {
     console.debug("create");
@@ -1499,8 +1501,7 @@ export default class Game extends Phaser.Scene {
     this.editorCreate();
 
     // // plugin test
-    // 	let pluginTest = this.plugins.get('plugin-test', true) as PluginTest;
-    // 	pluginTest.testFunction(this.instructionText);
+    this.NGIOPlugin = this.plugins.get('plugin-test', true) as PluginTest;
 
     // // scene plugin test
     // 	console.debug(this.plugins.scenePlugins);
@@ -1598,6 +1599,39 @@ export default class Game extends Phaser.Scene {
     });
 
     this.setWaiting();
+
+    // NGIO event test
+    this.input.keyboard.on("keydown-E", (event: any) => {
+        this.NGIOPlugin.eventTest();
+    });
+
+    // NGIO medal test
+    this.input.keyboard.on("keydown-M", (event: any) => {
+      this.NGIOPlugin.medalTest(70075);
+
+      console.debug(NGIO.getMedal(70075));
+      console.debug(NGIO.getMedal(70075).icon);
+      // this.load.image('icon', NGIO.getMedal(70075).icon);
+      this.load.image('icon', NGIO.getMedal(70075).icon);
+      this.load.start();
+      this.add.image(10, 10, 'icon');
+      this.add.image(600, 600, 'icon').setScale(5);
+    });
+
+    // NGIO cloud save test
+    this.input.keyboard.on("keydown-S", (event: any) => {
+      this.NGIOPlugin.setSaveData();
+    });
+
+    // NGIO scoreboard test
+    this.input.keyboard.on("keydown-P", (event: any) => {
+      this.NGIOPlugin.postScore();
+    });
+  }
+  
+  update(time: number, delta: number): void
+  {
+    this.NGIOPlugin.update(this.instructionText);
   }
 
   setCurrentQuestion(question: number) {
@@ -1608,7 +1642,7 @@ export default class Game extends Phaser.Scene {
   setAnswers() {
     // answer 1
     this.answer1Text.setText(this.quizData.questions[this.currentQuestion].answers[0]);
-    this.orangeCentre.fillAlpha = this.answer1Buttons[this.currentQuestion][0]
+    this.orangeCentre.fillAlpha = this.input
       ? 1
       : 0.2;
     this.orangeUp.fillAlpha = this.answer1Buttons[this.currentQuestion][1]

@@ -61,11 +61,13 @@ export class InputManager {
       // FIXME: this event dispatches on every frame the input is true, not just on down
       this.updateInputFromKeyboard(true, event.key);
       console.debug(this.currentInput);
+      this.scene.game.events.emit('input-change');
       this.checkInputCombos();
     });
     this.scene.input.keyboard.on("keyup", (event: any) => {
       this.updateInputFromKeyboard(false, event.key);
       console.debug(this.currentInput);
+      this.scene.game.events.emit('input-change');
       this.checkInputCombos();
     });
   }
