@@ -3,8 +3,40 @@
     [
       {
         "answers": [
+          "Jesus story",
+          "Instruction book",
+          "Good news",
+          "A type of music"
+        ]
+      },
+      {
+        "answers": [
+          "Unstoppable",
+          "Cursed by God",
+          "Like a pirate",
+          "Scary ghost! ooOOooh!"
+        ]
+      },
+      {
+        "answers": [
+          "Bereans",
+          "Galatians",
+          "Christians",
+          "Egyptians"
+        ]
+      },
+      {
+        "answers": [
+          "They prayed",
+          "They asked Jesus",
+          "Online fact checkers",
+          "Searched the scriptures"
+        ]
+      },
+      {
+        "answers": [
           "this is a correct answer",
-          "this is the 1st incorrect answer",
+          "Cursed by God",
           "this is the 2nd incorrect answer",
           "this is the 3rd incorrect answer"
         ]
@@ -12,14 +44,46 @@
       {
         "answers": [
           "this is a correct answer",
-          "this is the 1st incorrect answer",
+          "Cursed by God",
+          "this is the 2nd incorrect answer",
+          "this is the 3rd incorrect answer"
+        ]
+      },
+      {
+        "answers": [
+          "this is a correct answer",
+          "Cursed by God",
+          "this is the 2nd incorrect answer",
+          "this is the 3rd incorrect answer"
+        ]
+      },
+      {
+        "answers": [
+          "this is a correct answer",
+          "Cursed by God",
+          "this is the 2nd incorrect answer",
+          "this is the 3rd incorrect answer"
+        ]
+      },
+      {
+        "answers": [
+          "this is a correct answer",
+          "Cursed by God",
+          "this is the 2nd incorrect answer",
+          "this is the 3rd incorrect answer"
+        ]
+      },
+      {
+        "answers": [
+          "this is a correct answer",
+          "Cursed by God",
           "this is the 2nd incorrect answer",
           "this is the 3rd incorrect answer"
         ]
       }
     ],
   "meta": {
-    "date": "4-13-2023",
+    "date": "4-20-2023",
     "week": 6
   }
 }

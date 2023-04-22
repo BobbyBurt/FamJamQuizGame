@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
 
-    "dev": "esbuild src/main.ts --serve=3000 --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/main.js",
-    "prod": "esbuild src/main.ts --serve=3000 --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/main.js",
+    "dev": "esbuild src/main.ts --serve=3001 --servedir=public --bundle --sourcemap --target=es6 --define:__DEV__=true --outfile=public/main.js",
+    "prod": "esbuild src/main.ts --serve=3001 --servedir=public --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/main.js",
     "build": "esbuild src/main.ts --bundle --minify --target=es6 --define:__DEV__=false --outfile=public/main.js",
 
     "editor": "phasereditor2d-launcher -project . -port 1959",
