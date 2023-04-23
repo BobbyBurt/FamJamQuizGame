@@ -2,6 +2,36 @@
     "section1": {
         "files": [
             {
+                "url": "assets/arrow-button-blue-active.png",
+                "type": "image",
+                "key": "arrow-button-blue-active"
+            },
+            {
+                "url": "assets/arrow-button-blue-inactive.png",
+                "type": "image",
+                "key": "arrow-button-blue-inactive"
+            },
+            {
+                "url": "assets/arrow-button-orange-active.png",
+                "type": "image",
+                "key": "arrow-button-orange-active"
+            },
+            {
+                "url": "assets/arrow-button-orange-inactive.png",
+                "type": "image",
+                "key": "arrow-button-orange-inactive"
+            },
+            {
+                "url": "assets/blue-centre-active.png",
+                "type": "image",
+                "key": "blue-centre-active"
+            },
+            {
+                "url": "assets/blue-centre-inactive.png",
+                "type": "image",
+                "key": "blue-centre-inactive"
+            },
+            {
                 "url": [
                     "assets/audio/1-20 Got an Item.mp3"
                 ],
@@ -31,6 +61,23 @@
                 ],
                 "type": "audio",
                 "key": "incorrect"
+            },
+            {
+                "url": [
+                    "assets/audio/DistanceMenuBoop.wav"
+                ],
+                "type": "audio",
+                "key": "input-down"
+            },
+            {
+                "url": "assets/orange-centre-active.png",
+                "type": "image",
+                "key": "orange-centre-active"
+            },
+            {
+                "url": "assets/orange-centre-inactive.png",
+                "type": "image",
+                "key": "orange-centre-inactive"
             },
             {
                 "url": [

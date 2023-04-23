@@ -43,6 +43,7 @@ export class InputManager {
         this.updateInputFromGamepad(!!button.value, button.index);
         console.debug(this.currentInput);
         this.checkInputCombos();
+        this.scene.sound.play('input-down');
       }
     );
     this.scene.input.gamepad.on(
@@ -54,6 +55,7 @@ export class InputManager {
       ) => {
         this.updateInputFromGamepad(!!button.value, button.index);
         console.debug(this.currentInput);
+        this.scene.game.events.emit("input-change");
         this.checkInputCombos();
       }
     );
@@ -61,42 +63,51 @@ export class InputManager {
       // FIXME: this event dispatches on every frame the input is true, not just on down
       this.updateInputFromKeyboard(true, event.key);
       console.debug(this.currentInput);
-      this.scene.game.events.emit('input-change');
+      this.scene.game.events.emit("input-change");
       this.checkInputCombos();
     });
     this.scene.input.keyboard.on("keyup", (event: any) => {
       this.updateInputFromKeyboard(false, event.key);
       console.debug(this.currentInput);
-      this.scene.game.events.emit('input-change');
+      this.scene.game.events.emit("input-change-false");
       this.checkInputCombos();
     });
   }
 
+  /** Also emits specific input event */
   updateInputFromGamepad(down: boolean, button: number) {
     switch (button) {
       case 0:
         this.currentInput.orange.centre = down;
+        this.scene.game.events.emit("orange-centre-" + down);
         break;
       case 1:
         this.currentInput.orange.up = down;
+        this.scene.game.events.emit("orange-up-" + down);
         break;
       case 3:
         this.currentInput.orange.right = down;
+        this.scene.game.events.emit("orange-right-" + down);
         break;
       case using8BitDo ? 8 : 5:
         this.currentInput.orange.down = down;
+        this.scene.game.events.emit("orange-down-" + down);
         break;
       case 9:
         this.currentInput.blue.up = down;
+        this.scene.game.events.emit("blue-up-" + down);
         break;
       case 12:
         this.currentInput.blue.left = down;
+        this.scene.game.events.emit("blue-left-" + down);
         break;
       case 13:
         this.currentInput.blue.centre = down;
+        this.scene.game.events.emit("blue-centre-" + down);
         break;
       case 15:
         this.currentInput.blue.down = down;
+        this.scene.game.events.emit("blue-down-" + down);
         break;
     }
   }

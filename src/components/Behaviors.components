@@ -236,6 +236,73 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "SetAlphaOnEvent",
+            "baseClass": "UserComponent",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "activateEvent",
+                    "label": "Activate Event",
+                    "tooltip": "",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "deactivateEvent",
+                    "label": "Deactivate Event",
+                    "tooltip": "",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "activeAlpha",
+                    "label": "ActiveAlpha",
+                    "tooltip": "0-1",
+                    "defValue": 1,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "deactiveAlpha",
+                    "label": "Deactive Alpha",
+                    "tooltip": "0-1",
+                    "defValue": 0.2,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "activateTweenDuration",
+                    "label": "Activate Tween Duration",
+                    "tooltip": "",
+                    "defValue": 100,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "deactivateTweenDuration",
+                    "label": "Deactivate Tween Duration",
+                    "tooltip": "",
+                    "defValue": 100,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
         }
     ],
     "meta": {

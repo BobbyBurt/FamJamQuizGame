@@ -1042,19 +1042,6 @@
             "fontStyle": "bold"
         },
         {
-            "type": "Image",
-            "id": "89b8b17b-de92-422f-a8bb-16fa6421de1d",
-            "label": "famJam_logo",
-            "components": [],
-            "texture": {
-                "key": "FamJam-logo"
-            },
-            "x": 363,
-            "y": 211,
-            "scaleX": 0.7593104765732959,
-            "scaleY": 0.7593104765732959
-        },
-        {
             "type": "Text",
             "id": "33c6329e-6e80-43e8-895c-869426a03f57",
             "label": "questionNumberText",
@@ -1068,6 +1055,295 @@
             "fontFamily": "arial",
             "fontSize": "40px",
             "fontStyle": "bold"
+        },
+        {
+            "type": "Container",
+            "id": "a201c4c8-495b-497c-bb64-c311d3010c9b",
+            "label": "inputFeedback",
+            "components": [],
+            "x": 1311,
+            "y": 514,
+            "scaleX": 0.642086873500129,
+            "scaleY": 0.642086873500129,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "f17f2dea-1767-4fef-af17-c3552f3382bd",
+                    "label": "orangeRightInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-orange-inactive"
+                    },
+                    "x": 574,
+                    "y": -15
+                },
+                {
+                    "type": "Image",
+                    "id": "e6baeaad-6f08-4859-93c6-48bbd82346a3",
+                    "label": "orangeRightActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "orange-right-true",
+                    "SetAlphaOnEvent.deactivateEvent": "orange-right-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-orange-active"
+                    },
+                    "x": 574,
+                    "y": -14,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "099d637a-b353-441a-9584-29c345f9f496",
+                    "label": "orangeDownInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-orange-inactive"
+                    },
+                    "x": 209,
+                    "y": 398,
+                    "angle": 90
+                },
+                {
+                    "type": "Image",
+                    "id": "fd7a9865-ab48-4e02-b8db-33f5834adf47",
+                    "label": "orangeDownActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "orange-down-true",
+                    "SetAlphaOnEvent.deactivateEvent": "orange-down-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-orange-active"
+                    },
+                    "x": 209,
+                    "y": 398,
+                    "angle": 90,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "e2ebc98c-2742-4f65-a519-a84616f9adbc",
+                    "label": "orangeUpInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-orange-inactive"
+                    },
+                    "x": 169,
+                    "y": -405,
+                    "angle": -90
+                },
+                {
+                    "type": "Image",
+                    "id": "e5c749d1-21bf-4909-a8bf-908244fe1b1e",
+                    "label": "orangeUpActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "orange-up-true",
+                    "SetAlphaOnEvent.deactivateEvent": "orange-up-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-orange-active"
+                    },
+                    "x": 169,
+                    "y": -405,
+                    "angle": -90,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "32b85c83-f9fd-4f28-a954-b41eeaeda7a9",
+                    "label": "orangeCentreinactive",
+                    "components": [],
+                    "texture": {
+                        "key": "orange-centre-inactive"
+                    },
+                    "x": 189,
+                    "y": -2
+                },
+                {
+                    "type": "Image",
+                    "id": "2050f027-ee7b-404c-a1a7-d07efc2871bf",
+                    "label": "orangeCentreActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "orange-centre-true",
+                    "SetAlphaOnEvent.deactivateEvent": "orange-centre-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "orange-centre-active"
+                    },
+                    "x": 189,
+                    "y": -2,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "4484d875-313b-4bff-944c-517cf317f6ee",
+                    "label": "blueCentreInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "blue-centre-inactive"
+                    },
+                    "x": -188,
+                    "y": -2
+                },
+                {
+                    "type": "Image",
+                    "id": "500bd800-4caf-448b-a0b5-6ede7c8885c2",
+                    "label": "blueCentreActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "blue-centre-true",
+                    "SetAlphaOnEvent.deactivateEvent": "blue-centre-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "blue-centre-active"
+                    },
+                    "x": -188,
+                    "y": -2,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "d6eab1ed-3d4d-4e38-97f5-06fa7032e32e",
+                    "label": "blueUpInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-blue-inactive"
+                    },
+                    "x": -208,
+                    "y": -405,
+                    "angle": -90
+                },
+                {
+                    "type": "Image",
+                    "id": "494b4a7f-d823-4a92-bbbc-1bc4729caf39",
+                    "label": "blueUpActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "blue-up-true",
+                    "SetAlphaOnEvent.deactivateEvent": "blue-up-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-blue-active"
+                    },
+                    "x": -208,
+                    "y": -405,
+                    "angle": -90,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "3e7c5c63-6d3d-473f-9f52-574390bffc16",
+                    "label": "blueDownInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-blue-inactive"
+                    },
+                    "x": -168,
+                    "y": 398,
+                    "angle": 90
+                },
+                {
+                    "type": "Image",
+                    "id": "3c8de016-9736-4538-b0a5-2538ce1ff7aa",
+                    "label": "blueDownActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "blue-down-true",
+                    "SetAlphaOnEvent.deactivateEvent": "blue-down-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-blue-active"
+                    },
+                    "x": -168,
+                    "y": 398,
+                    "angle": 90,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                },
+                {
+                    "type": "Image",
+                    "id": "3576273e-0759-4f75-ba7b-9d0b423e7b1a",
+                    "label": "blueLeftInactive",
+                    "components": [],
+                    "texture": {
+                        "key": "arrow-button-blue-inactive"
+                    },
+                    "x": -575,
+                    "y": 29,
+                    "angle": -180
+                },
+                {
+                    "type": "Image",
+                    "id": "3a3a3523-313e-4e4b-ad40-69cb2c5e92a7",
+                    "label": "blueLeftActive",
+                    "components": [
+                        "SetAlphaOnEvent"
+                    ],
+                    "SetAlphaOnEvent.activateEvent": "blue-left-true",
+                    "SetAlphaOnEvent.deactivateEvent": "blue-left-false",
+                    "SetAlphaOnEvent.deactiveAlpha": 0.1,
+                    "texture": {
+                        "key": "arrow-button-blue-active"
+                    },
+                    "x": -575,
+                    "y": 30,
+                    "angle": -180,
+                    "alpha": 0.1,
+                    "alphaTopLeft": 0.1,
+                    "alphaTopRight": 0.1,
+                    "alphaBottomLeft": 0.1,
+                    "alphaBottomRight": 0.1
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "10c84916-3d09-407f-8e4f-146c099b5b56",
+            "label": "famJam_logo_simplified",
+            "components": [],
+            "texture": {
+                "key": "FamJam-logo-simplified"
+            },
+            "x": 257,
+            "y": 105
         }
     ],
     "plainObjects": [],
