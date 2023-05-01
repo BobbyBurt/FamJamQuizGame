@@ -3,11 +3,12 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import AnswerPrefab from "../prefabs/AnswerPrefab";
 import SetAlphaOnEvent from "../components/SetAlphaOnEvent";
 /* START-USER-IMPORTS */
 
 import PluginTest from "plugins/PluginTest";
-import { InputManager, twoButtonInputCombos } from "~/components/InputManager";
+import { InputManager, answerInputCombos } from "~/components/InputManager";
 import { QuizData } from "../components/quizDataUtil";
 import ScenePluginTest from "~/plugins/ScenePluginTest";
 
@@ -24,18 +25,6 @@ export default class Game extends Phaser.Scene {
 	}
 
 	editorCreate(): void {
-
-		// answer1Backing
-		const answer1Backing = this.add.rectangle(1398, 202, 950, 128);
-		answer1Backing.isFilled = true;
-		answer1Backing.fillColor = 3355443;
-		answer1Backing.isStroked = true;
-		answer1Backing.strokeColor = 8224125;
-		answer1Backing.lineWidth = 10;
-
-		// answer1Text
-		const answer1Text = this.add.text(1106, 164, "", {});
-		answer1Text.setStyle({ "fontFamily": "arial", "fontSize": "64px" });
 
 		// answer2Backing
 		const answer2Backing = this.add.rectangle(1398, 436, 950, 128);
@@ -352,98 +341,129 @@ export default class Game extends Phaser.Scene {
 		orangeUp_1.lineWidth = 5;
 		answer2Buttons.add(orangeUp_1);
 
-		// answer1Buttons
-		const answer1Buttons = this.add.container(960, 162);
-		answer1Buttons.scaleX = 0.25;
-		answer1Buttons.scaleY = 0.25;
+		// answer
+		const answer = new AnswerPrefab(this, 878, 190);
+		this.add.existing(answer);
+
+		// answer1Backing
+		const answer1Backing = this.add.rectangle(438, 40, 950, 128);
+		answer1Backing.isFilled = true;
+		answer1Backing.fillColor = 3355443;
+		answer1Backing.isStroked = true;
+		answer1Backing.strokeColor = 8224125;
+		answer1Backing.lineWidth = 10;
+		answer.add(answer1Backing);
+
+		// answer1Text
+		const answer1Text = this.add.text(146, 2, "", {});
+		answer1Text.setStyle({ "fontFamily": "arial", "fontSize": "64px" });
+		answer.add(answer1Text);
 
 		// backing
 		const backing = this.add.rectangle(0, 0, 750, 550);
+		backing.scaleX = 0.25;
+		backing.scaleY = 0.25;
 		backing.isFilled = true;
 		backing.fillColor = 6184542;
 		backing.isStroked = true;
 		backing.lineWidth = 7;
-		answer1Buttons.add(backing);
+		answer.add(backing);
 
 		// orangeUp
-		const orangeUp = this.add.rectangle(88, -176, 110, 128);
+		const orangeUp = this.add.rectangle(28, -45, 110, 128);
+		orangeUp.scaleX = 0.25;
+		orangeUp.scaleY = 0.25;
 		orangeUp.isFilled = true;
 		orangeUp.fillColor = 16228608;
 		orangeUp.fillAlpha = 0.2;
 		orangeUp.isStroked = true;
 		orangeUp.strokeColor = 16228608;
 		orangeUp.lineWidth = 5;
-		answer1Buttons.add(orangeUp);
+		answer.add(orangeUp);
 
 		// orangeCentre
-		const orangeCentre = this.add.ellipse(88, 1, 128, 128);
+		const orangeCentre = this.add.ellipse(28, 1, 128, 128);
+		orangeCentre.scaleX = 0.25;
+		orangeCentre.scaleY = 0.25;
 		orangeCentre.isFilled = true;
 		orangeCentre.fillColor = 16228608;
 		orangeCentre.fillAlpha = 0.2;
 		orangeCentre.isStroked = true;
 		orangeCentre.strokeColor = 16228608;
 		orangeCentre.lineWidth = 5;
-		answer1Buttons.add(orangeCentre);
+		answer.add(orangeCentre);
 
 		// orangeDown
-		const orangeDown = this.add.rectangle(88, 175, 110, 128);
+		const orangeDown = this.add.rectangle(28, 46, 110, 128);
+		orangeDown.scaleX = 0.25;
+		orangeDown.scaleY = 0.25;
 		orangeDown.isFilled = true;
 		orangeDown.fillColor = 16228608;
 		orangeDown.fillAlpha = 0.2;
 		orangeDown.isStroked = true;
 		orangeDown.strokeColor = 16228608;
 		orangeDown.lineWidth = 5;
-		answer1Buttons.add(orangeDown);
+		answer.add(orangeDown);
 
 		// orangeRight
-		const orangeRight = this.add.rectangle(270, 1, 128, 110);
+		const orangeRight = this.add.rectangle(71, 1, 128, 110);
+		orangeRight.scaleX = 0.25;
+		orangeRight.scaleY = 0.25;
 		orangeRight.isFilled = true;
 		orangeRight.fillColor = 16228608;
 		orangeRight.fillAlpha = 0.2;
 		orangeRight.isStroked = true;
 		orangeRight.strokeColor = 16228608;
 		orangeRight.lineWidth = 5;
-		answer1Buttons.add(orangeRight);
+		answer.add(orangeRight);
 
 		// blueUp
-		const blueUp = this.add.rectangle(-90, -175, 110, 128);
+		const blueUp = this.add.rectangle(-21, -44, 110, 128);
+		blueUp.scaleX = 0.25;
+		blueUp.scaleY = 0.25;
 		blueUp.isFilled = true;
 		blueUp.fillColor = 1946367;
 		blueUp.fillAlpha = 0.2;
 		blueUp.isStroked = true;
 		blueUp.strokeColor = 1946367;
 		blueUp.lineWidth = 5;
-		answer1Buttons.add(blueUp);
+		answer.add(blueUp);
 
 		// blueCentre
-		const blueCentre = this.add.ellipse(-90, 2, 128, 128);
+		const blueCentre = this.add.ellipse(-21, 2, 128, 128);
+		blueCentre.scaleX = 0.25;
+		blueCentre.scaleY = 0.25;
 		blueCentre.isFilled = true;
 		blueCentre.fillColor = 1946367;
 		blueCentre.fillAlpha = 0.2;
 		blueCentre.isStroked = true;
 		blueCentre.strokeColor = 1946367;
 		blueCentre.lineWidth = 5;
-		answer1Buttons.add(blueCentre);
+		answer.add(blueCentre);
 
 		// blueDown
-		const blueDown = this.add.rectangle(-90, 176, 110, 128);
+		const blueDown = this.add.rectangle(-21, 47, 110, 128);
+		blueDown.scaleX = 0.25;
+		blueDown.scaleY = 0.25;
 		blueDown.isFilled = true;
 		blueDown.fillColor = 1946367;
 		blueDown.fillAlpha = 0.2;
 		blueDown.isStroked = true;
 		blueDown.strokeColor = 1946367;
 		blueDown.lineWidth = 5;
-		answer1Buttons.add(blueDown);
+		answer.add(blueDown);
 
 		// blueLeft
-		const blueLeft = this.add.rectangle(-260, 1, 128, 110);
+		const blueLeft = this.add.rectangle(-74, 1, 128, 110);
+		blueLeft.scaleX = 0.25;
+		blueLeft.scaleY = 0.25;
 		blueLeft.isFilled = true;
 		blueLeft.fillColor = 1946367;
 		blueLeft.fillAlpha = 0.2;
 		blueLeft.isStroked = true;
 		blueLeft.strokeColor = 1946367;
 		blueLeft.lineWidth = 5;
-		answer1Buttons.add(blueLeft);
+		answer.add(blueLeft);
 
 		// buttonFeedback
 		const buttonFeedback = this.add.container(367, 816);
@@ -764,8 +784,6 @@ export default class Game extends Phaser.Scene {
 		blueLeftActiveSetAlphaOnEvent.deactivateEvent = "blue-left-false";
 		blueLeftActiveSetAlphaOnEvent.deactiveAlpha = 0.1;
 
-		this.answer1Backing = answer1Backing;
-		this.answer1Text = answer1Text;
 		this.answer2Backing = answer2Backing;
 		this.answer2Text = answer2Text;
 		this.answer3Backing = answer3Backing;
@@ -796,6 +814,9 @@ export default class Game extends Phaser.Scene {
 		this.orangeDown_1 = orangeDown_1;
 		this.orangeCentre_1 = orangeCentre_1;
 		this.orangeUp_1 = orangeUp_1;
+		this.answer = answer;
+		this.answer1Backing = answer1Backing;
+		this.answer1Text = answer1Text;
 		this.orangeUp = orangeUp;
 		this.orangeCentre = orangeCentre;
 		this.orangeDown = orangeDown;
@@ -818,8 +839,6 @@ export default class Game extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
-	private answer1Backing!: Phaser.GameObjects.Rectangle;
-	private answer1Text!: Phaser.GameObjects.Text;
 	private answer2Backing!: Phaser.GameObjects.Rectangle;
 	private answer2Text!: Phaser.GameObjects.Text;
 	private answer3Backing!: Phaser.GameObjects.Rectangle;
@@ -850,6 +869,9 @@ export default class Game extends Phaser.Scene {
 	private orangeDown_1!: Phaser.GameObjects.Rectangle;
 	private orangeCentre_1!: Phaser.GameObjects.Ellipse;
 	private orangeUp_1!: Phaser.GameObjects.Rectangle;
+	private answer!: AnswerPrefab;
+	private answer1Backing!: Phaser.GameObjects.Rectangle;
+	private answer1Text!: Phaser.GameObjects.Text;
 	private orangeUp!: Phaser.GameObjects.Rectangle;
 	private orangeCentre!: Phaser.GameObjects.Ellipse;
 	private orangeDown!: Phaser.GameObjects.Rectangle;
@@ -1103,11 +1125,6 @@ export default class Game extends Phaser.Scene {
 
     this.editorCreate();
 
-    	this.events.on('A', () =>
-    	{
-    		console.log('game A');
-    	})
-
     // json loading test
     this.quizData = this.cache.json.get("test-quiz");
 
@@ -1115,6 +1132,12 @@ export default class Game extends Phaser.Scene {
     this.setupAnswerBackings();
 
     this.inputManager = new InputManager(this);
+
+	this.answer.setButtonCombo(0);
+	this.inputManager.setAnswerCombos('easy');
+	this.answer.setButtonCombo(0);
+	// TODO - randomize answer index
+
 
     // DEPRECATED
     // MARKED FOR DELETION
@@ -1209,117 +1232,119 @@ export default class Game extends Phaser.Scene {
   }
 
   setAnswers() {
-    // answer 1
-    this.answer1Text.setText(this.quizData.questions[this.currentQuestion].answers[0]);
-    this.orangeCentre.fillAlpha = this.input
-      ? 1
-      : 0.2;
-    this.orangeUp.fillAlpha = this.answer1Buttons[this.currentQuestion][1]
-      ? 1
-      : 0.2;
-    this.orangeRight.fillAlpha = this.answer1Buttons[this.currentQuestion][3]
-      ? 1
-      : 0.2;
-    this.orangeDown.fillAlpha = this.answer1Buttons[this.currentQuestion][5]
-      ? 1
-      : 0.2;
-    this.blueUp.fillAlpha = this.answer1Buttons[this.currentQuestion][9]
-      ? 1
-      : 0.2;
-    this.blueLeft.fillAlpha = this.answer1Buttons[this.currentQuestion][12]
-      ? 1
-      : 0.2;
-    this.blueCentre.fillAlpha = this.answer1Buttons[this.currentQuestion][13]
-      ? 1
-      : 0.2;
-    this.blueDown.fillAlpha = this.answer1Buttons[this.currentQuestion][15]
-      ? 1
-      : 0.2;
-    this.answer1Backing.strokeColor = 8224125;
+	// DEPRECATED - to be made obsolete by answerPrefab - marked for deletion.
 
-    // answer 2
-    this.answer2Text.setText(this.quizData.questions[this.currentQuestion].answers[1]);
-    this.orangeCentre_1.fillAlpha = this.answer2Buttons[this.currentQuestion][0]
-      ? 1
-      : 0.2;
-    this.orangeUp_1.fillAlpha = this.answer2Buttons[this.currentQuestion][1]
-      ? 1
-      : 0.2;
-    this.orangeRight_1.fillAlpha = this.answer2Buttons[this.currentQuestion][3]
-      ? 1
-      : 0.2;
-    this.orangeDown_1.fillAlpha = this.answer2Buttons[this.currentQuestion][5]
-      ? 1
-      : 0.2;
-    this.blueUp_1.fillAlpha = this.answer2Buttons[this.currentQuestion][9]
-      ? 1
-      : 0.2;
-    this.blueLeft_1.fillAlpha = this.answer2Buttons[this.currentQuestion][12]
-      ? 1
-      : 0.2;
-    this.blueCentre_1.fillAlpha = this.answer2Buttons[this.currentQuestion][13]
-      ? 1
-      : 0.2;
-    this.blueDown_1.fillAlpha = this.answer2Buttons[this.currentQuestion][15]
-      ? 1
-      : 0.2;
-    this.answer2Backing.strokeColor = 8224125;
+    // // answer 1
+    // this.answer1Text.setText(this.quizData.questions[this.currentQuestion].answers[0]);
+    // this.orangeCentre.fillAlpha = this.input
+    //   ? 1
+    //   : 0.2;
+    // this.orangeUp.fillAlpha = this.answer1Buttons[this.currentQuestion][1]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeRight.fillAlpha = this.answer1Buttons[this.currentQuestion][3]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeDown.fillAlpha = this.answer1Buttons[this.currentQuestion][5]
+    //   ? 1
+    //   : 0.2;
+    // this.blueUp.fillAlpha = this.answer1Buttons[this.currentQuestion][9]
+    //   ? 1
+    //   : 0.2;
+    // this.blueLeft.fillAlpha = this.answer1Buttons[this.currentQuestion][12]
+    //   ? 1
+    //   : 0.2;
+    // this.blueCentre.fillAlpha = this.answer1Buttons[this.currentQuestion][13]
+    //   ? 1
+    //   : 0.2;
+    // this.blueDown.fillAlpha = this.answer1Buttons[this.currentQuestion][15]
+    //   ? 1
+    //   : 0.2;
+    // this.answer1Backing.strokeColor = 8224125;
 
-    // answer 3
-    this.answer3Text.setText(this.quizData.questions[this.currentQuestion].answers[2]);
-    this.orangeCentre_2.fillAlpha = this.answer3Buttons[this.currentQuestion][0]
-      ? 1
-      : 0.2;
-    this.orangeUp_2.fillAlpha = this.answer3Buttons[this.currentQuestion][1]
-      ? 1
-      : 0.2;
-    this.orangeRight_2.fillAlpha = this.answer3Buttons[this.currentQuestion][3]
-      ? 1
-      : 0.2;
-    this.orangeDown_2.fillAlpha = this.answer3Buttons[this.currentQuestion][5]
-      ? 1
-      : 0.2;
-    this.blueUp_2.fillAlpha = this.answer3Buttons[this.currentQuestion][9]
-      ? 1
-      : 0.2;
-    this.blueLeft_2.fillAlpha = this.answer3Buttons[this.currentQuestion][12]
-      ? 1
-      : 0.2;
-    this.blueCentre_2.fillAlpha = this.answer3Buttons[this.currentQuestion][13]
-      ? 1
-      : 0.2;
-    this.blueDown_2.fillAlpha = this.answer3Buttons[this.currentQuestion][15]
-      ? 1
-      : 0.2;
-    this.answer3Backing.strokeColor = 8224125;
+    // // answer 2
+    // this.answer2Text.setText(this.quizData.questions[this.currentQuestion].answers[1]);
+    // this.orangeCentre_1.fillAlpha = this.answer2Buttons[this.currentQuestion][0]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeUp_1.fillAlpha = this.answer2Buttons[this.currentQuestion][1]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeRight_1.fillAlpha = this.answer2Buttons[this.currentQuestion][3]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeDown_1.fillAlpha = this.answer2Buttons[this.currentQuestion][5]
+    //   ? 1
+    //   : 0.2;
+    // this.blueUp_1.fillAlpha = this.answer2Buttons[this.currentQuestion][9]
+    //   ? 1
+    //   : 0.2;
+    // this.blueLeft_1.fillAlpha = this.answer2Buttons[this.currentQuestion][12]
+    //   ? 1
+    //   : 0.2;
+    // this.blueCentre_1.fillAlpha = this.answer2Buttons[this.currentQuestion][13]
+    //   ? 1
+    //   : 0.2;
+    // this.blueDown_1.fillAlpha = this.answer2Buttons[this.currentQuestion][15]
+    //   ? 1
+    //   : 0.2;
+    // this.answer2Backing.strokeColor = 8224125;
 
-    // answer 4
-    this.answer4Text.setText(this.quizData.questions[this.currentQuestion].answers[3]);
-    this.orangeCentre_3.fillAlpha = this.answer4Buttons[this.currentQuestion][0]
-      ? 1
-      : 0.2;
-    this.orangeUp_3.fillAlpha = this.answer4Buttons[this.currentQuestion][1]
-      ? 1
-      : 0.2;
-    this.orangeRight_3.fillAlpha = this.answer4Buttons[this.currentQuestion][3]
-      ? 1
-      : 0.2;
-    this.orangeDown_3.fillAlpha = this.answer4Buttons[this.currentQuestion][5]
-      ? 1
-      : 0.2;
-    this.blueUp_3.fillAlpha = this.answer4Buttons[this.currentQuestion][9]
-      ? 1
-      : 0.2;
-    this.blueLeft_3.fillAlpha = this.answer4Buttons[this.currentQuestion][12]
-      ? 1
-      : 0.2;
-    this.blueCentre_3.fillAlpha = this.answer4Buttons[this.currentQuestion][13]
-      ? 1
-      : 0.2;
-    this.blueDown_3.fillAlpha = this.answer4Buttons[this.currentQuestion][15]
-      ? 1
-      : 0.2;
-    this.answer4Backing.strokeColor = 8224125;
+    // // answer 3
+    // this.answer3Text.setText(this.quizData.questions[this.currentQuestion].answers[2]);
+    // this.orangeCentre_2.fillAlpha = this.answer3Buttons[this.currentQuestion][0]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeUp_2.fillAlpha = this.answer3Buttons[this.currentQuestion][1]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeRight_2.fillAlpha = this.answer3Buttons[this.currentQuestion][3]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeDown_2.fillAlpha = this.answer3Buttons[this.currentQuestion][5]
+    //   ? 1
+    //   : 0.2;
+    // this.blueUp_2.fillAlpha = this.answer3Buttons[this.currentQuestion][9]
+    //   ? 1
+    //   : 0.2;
+    // this.blueLeft_2.fillAlpha = this.answer3Buttons[this.currentQuestion][12]
+    //   ? 1
+    //   : 0.2;
+    // this.blueCentre_2.fillAlpha = this.answer3Buttons[this.currentQuestion][13]
+    //   ? 1
+    //   : 0.2;
+    // this.blueDown_2.fillAlpha = this.answer3Buttons[this.currentQuestion][15]
+    //   ? 1
+    //   : 0.2;
+    // this.answer3Backing.strokeColor = 8224125;
+
+    // // answer 4
+    // this.answer4Text.setText(this.quizData.questions[this.currentQuestion].answers[3]);
+    // this.orangeCentre_3.fillAlpha = this.answer4Buttons[this.currentQuestion][0]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeUp_3.fillAlpha = this.answer4Buttons[this.currentQuestion][1]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeRight_3.fillAlpha = this.answer4Buttons[this.currentQuestion][3]
+    //   ? 1
+    //   : 0.2;
+    // this.orangeDown_3.fillAlpha = this.answer4Buttons[this.currentQuestion][5]
+    //   ? 1
+    //   : 0.2;
+    // this.blueUp_3.fillAlpha = this.answer4Buttons[this.currentQuestion][9]
+    //   ? 1
+    //   : 0.2;
+    // this.blueLeft_3.fillAlpha = this.answer4Buttons[this.currentQuestion][12]
+    //   ? 1
+    //   : 0.2;
+    // this.blueCentre_3.fillAlpha = this.answer4Buttons[this.currentQuestion][13]
+    //   ? 1
+    //   : 0.2;
+    // this.blueDown_3.fillAlpha = this.answer4Buttons[this.currentQuestion][15]
+    //   ? 1
+    //   : 0.2;
+    // this.answer4Backing.strokeColor = 8224125;
 
     this.sound.stopAll();
     this.sound.play("question");
@@ -1331,39 +1356,40 @@ export default class Game extends Phaser.Scene {
 
   /**
    * Compares input to answers
+   * DEPRECATED - handled by InputManager - marked for deletion
    */
-  private checkInput() {
-    if (
-      this.downButtons.toString() === this.beginButtons.toString() &&
-      this.phase === "waiting"
-    ) {
-      this.setAnswers();
-    } else if (
-      this.downButtons.toString() ===
-      this.answer1Buttons[this.currentQuestion].toString()
-    ) {
-      console.debug("answered 1");
-      this.setAnswer(1);
-    } else if (
-      this.downButtons.toString() ===
-      this.answer2Buttons[this.currentQuestion].toString()
-    ) {
-      console.debug("answered 2");
-      this.setAnswer(2);
-    } else if (
-      this.downButtons.toString() ===
-      this.answer3Buttons[this.currentQuestion].toString()
-    ) {
-      console.debug("answered 3");
-      this.setAnswer(3);
-    } else if (
-      this.downButtons.toString() ===
-      this.answer4Buttons[this.currentQuestion].toString()
-    ) {
-      console.debug("answered 4");
-      this.setAnswer(4);
-    }
-  }
+//   private checkInput() {
+//     if (
+//       this.downButtons.toString() === this.beginButtons.toString() &&
+//       this.phase === "waiting"
+//     ) {
+//       this.setAnswers();
+//     } else if (
+//       this.downButtons.toString() ===
+//       this.answer1Buttons[this.currentQuestion].toString()
+//     ) {
+//       console.debug("answered 1");
+//       this.setAnswer(1);
+//     } else if (
+//       this.downButtons.toString() ===
+//       this.answer2Buttons[this.currentQuestion].toString()
+//     ) {
+//       console.debug("answered 2");
+//       this.setAnswer(2);
+//     } else if (
+//       this.downButtons.toString() ===
+//       this.answer3Buttons[this.currentQuestion].toString()
+//     ) {
+//       console.debug("answered 3");
+//       this.setAnswer(3);
+//     } else if (
+//       this.downButtons.toString() ===
+//       this.answer4Buttons[this.currentQuestion].toString()
+//     ) {
+//       console.debug("answered 4");
+//       this.setAnswer(4);
+//     }
+//   }
 
   setAnswer(answer: number) {
     if (this.phase !== "deciding") return;
