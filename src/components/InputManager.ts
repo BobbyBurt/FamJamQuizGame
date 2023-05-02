@@ -154,26 +154,25 @@ export class InputManager {
     }
   }
 
-  public setAnswerCombos(difficulty: "easy" | "moderate" | "hard") {
+  public setAnswerCombos() {
     currentAnswersComboIndex[0] = Phaser.Math.RND.integerInRange(
       0,
-      answerInputCombos.length
+      answerInputCombos.length - 1
     );
     currentAnswersComboIndex[1] = Phaser.Math.RND.integerInRange(
       0,
-      answerInputCombos.length
+      answerInputCombos.length - 1
     );
     currentAnswersComboIndex[2] = Phaser.Math.RND.integerInRange(
       0,
-      answerInputCombos.length
+      answerInputCombos.length - 1
     );
     currentAnswersComboIndex[3] = Phaser.Math.RND.integerInRange(
       0,
-      answerInputCombos.length
+      answerInputCombos.length - 1
     );
 
-    if (__DEV__)
-      console.debug(`new answer combo indexes: ${currentAnswersComboIndex}`);
+    console.debug(`new answer combo indexes: ${currentAnswersComboIndex}`);
 
     // RND needs to make sure the same combos aren't picked!
   }

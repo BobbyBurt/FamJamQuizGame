@@ -15,7 +15,10 @@ export default class AnswerPrefab extends Phaser.GameObjects.Container {
 		super(scene, x ?? 0, y ?? 0);
 
 		// answer1Backing
-		const answer1Backing = scene.add.rectangle(434, 40, 950, 128);
+		const answer1Backing = scene.add.rectangle(-41, 40, 950, 128);
+		answer1Backing.scaleX = 0.8787662174331119;
+		answer1Backing.scaleY = 1.1969853140739937;
+		answer1Backing.setOrigin(0, 0.5);
 		answer1Backing.isFilled = true;
 		answer1Backing.fillColor = 3355443;
 		answer1Backing.isStroked = true;
@@ -23,127 +26,228 @@ export default class AnswerPrefab extends Phaser.GameObjects.Container {
 		answer1Backing.lineWidth = 10;
 		this.add(answer1Backing);
 
-		// answer1Text
-		const answer1Text = scene.add.text(146, 2, "", {});
-		answer1Text.setOrigin(0.5, 0.5);
-		answer1Text.setStyle({ "fontFamily": "arial", "fontSize": "64px" });
-		this.add(answer1Text);
+		// answerText
+		const answerText = scene.add.text(124, 40, "", {});
+		answerText.setOrigin(0, 0.5);
+		answerText.text = "Lorem ipsum dolor sit amet, ";
+		answerText.setStyle({ "fontFamily": "arial", "fontSize": "50px", "maxLines":2});
+		answerText.setWordWrapWidth(700);
+		this.add(answerText);
 
 		// backing
 		const backing = scene.add.rectangle(0, 0, 750, 550);
 		backing.scaleX = 0.25;
 		backing.scaleY = 0.25;
 		backing.isFilled = true;
-		backing.fillColor = 6184542;
+		backing.fillColor = 1842204;
 		backing.isStroked = true;
-		backing.lineWidth = 7;
+		backing.lineWidth = 12;
 		this.add(backing);
 
-		// orangeUp
-		const orangeUp = scene.add.rectangle(28, -45, 110, 128);
-		orangeUp.scaleX = 0.25;
-		orangeUp.scaleY = 0.25;
-		orangeUp.isFilled = true;
-		orangeUp.fillColor = 16228608;
-		orangeUp.fillAlpha = 0.2;
-		orangeUp.isStroked = true;
-		orangeUp.strokeColor = 16228608;
-		orangeUp.lineWidth = 5;
-		this.add(orangeUp);
+		// blueLeftActive
+		const blueLeftActive = scene.add.image(-61, 1, "arrow-button-blue-active");
+		blueLeftActive.scaleX = 0.1;
+		blueLeftActive.scaleY = 0.1;
+		blueLeftActive.angle = -180;
+		blueLeftActive.alpha = 0;
+		blueLeftActive.alphaTopLeft = 0;
+		blueLeftActive.alphaTopRight = 0;
+		blueLeftActive.alphaBottomLeft = 0;
+		blueLeftActive.alphaBottomRight = 0;
+		this.add(blueLeftActive);
 
-		// orangeCentre
-		const orangeCentre = scene.add.ellipse(28, 1, 128, 128);
-		orangeCentre.scaleX = 0.25;
-		orangeCentre.scaleY = 0.25;
-		orangeCentre.isFilled = true;
-		orangeCentre.fillColor = 16228608;
-		orangeCentre.fillAlpha = 0.2;
-		orangeCentre.isStroked = true;
-		orangeCentre.strokeColor = 16228608;
-		orangeCentre.lineWidth = 5;
-		this.add(orangeCentre);
+		// blueLeftInactive
+		const blueLeftInactive = scene.add.image(-61, 1, "arrow-button-blue-inactive");
+		blueLeftInactive.scaleX = 0.1;
+		blueLeftInactive.scaleY = 0.1;
+		blueLeftInactive.angle = -180;
+		blueLeftInactive.alpha = 0.5;
+		blueLeftInactive.alphaTopLeft = 0.5;
+		blueLeftInactive.alphaTopRight = 0.5;
+		blueLeftInactive.alphaBottomLeft = 0.5;
+		blueLeftInactive.alphaBottomRight = 0.5;
+		this.add(blueLeftInactive);
 
-		// orangeDown
-		const orangeDown = scene.add.rectangle(28, 46, 110, 128);
-		orangeDown.scaleX = 0.25;
-		orangeDown.scaleY = 0.25;
-		orangeDown.isFilled = true;
-		orangeDown.fillColor = 16228608;
-		orangeDown.isStroked = true;
-		orangeDown.strokeColor = 16228608;
-		orangeDown.lineWidth = 5;
-		this.add(orangeDown);
+		// blueDownActive
+		const blueDownActive = scene.add.image(-18, 40, "arrow-button-blue-active");
+		blueDownActive.scaleX = 0.1;
+		blueDownActive.scaleY = 0.1;
+		blueDownActive.angle = 90;
+		blueDownActive.alpha = 0;
+		blueDownActive.alphaTopLeft = 0;
+		blueDownActive.alphaTopRight = 0;
+		blueDownActive.alphaBottomLeft = 0;
+		blueDownActive.alphaBottomRight = 0;
+		this.add(blueDownActive);
 
-		// orangeRight
-		const orangeRight = scene.add.rectangle(71, 1, 128, 110);
-		orangeRight.scaleX = 0.25;
-		orangeRight.scaleY = 0.25;
-		orangeRight.isFilled = true;
-		orangeRight.fillColor = 16228608;
-		orangeRight.fillAlpha = 0.2;
-		orangeRight.isStroked = true;
-		orangeRight.strokeColor = 16228608;
-		orangeRight.lineWidth = 5;
-		this.add(orangeRight);
+		// blueDownInactive
+		const blueDownInactive = scene.add.image(-18, 40, "arrow-button-blue-inactive");
+		blueDownInactive.scaleX = 0.1;
+		blueDownInactive.scaleY = 0.1;
+		blueDownInactive.angle = 90;
+		blueDownInactive.alpha = 0.5;
+		blueDownInactive.alphaTopLeft = 0.5;
+		blueDownInactive.alphaTopRight = 0.5;
+		blueDownInactive.alphaBottomLeft = 0.5;
+		blueDownInactive.alphaBottomRight = 0.5;
+		this.add(blueDownInactive);
 
-		// blueUp
-		const blueUp = scene.add.rectangle(-21, -44, 110, 128);
-		blueUp.scaleX = 0.25;
-		blueUp.scaleY = 0.25;
-		blueUp.isFilled = true;
-		blueUp.fillColor = 1946367;
-		blueUp.fillAlpha = 0.2;
-		blueUp.isStroked = true;
-		blueUp.strokeColor = 1946367;
-		blueUp.lineWidth = 5;
-		this.add(blueUp);
+		// blueUpActive
+		const blueUpActive = scene.add.image(-22, -40, "arrow-button-blue-active");
+		blueUpActive.scaleX = 0.1;
+		blueUpActive.scaleY = 0.1;
+		blueUpActive.angle = -90;
+		blueUpActive.alpha = 0;
+		blueUpActive.alphaTopLeft = 0;
+		blueUpActive.alphaTopRight = 0;
+		blueUpActive.alphaBottomLeft = 0;
+		blueUpActive.alphaBottomRight = 0;
+		this.add(blueUpActive);
 
-		// blueCentre
-		const blueCentre = scene.add.ellipse(-21, 2, 128, 128);
-		blueCentre.scaleX = 0.25;
-		blueCentre.scaleY = 0.25;
-		blueCentre.isFilled = true;
-		blueCentre.fillColor = 1946367;
-		blueCentre.fillAlpha = 0.2;
-		blueCentre.isStroked = true;
-		blueCentre.strokeColor = 1946367;
-		blueCentre.lineWidth = 5;
-		this.add(blueCentre);
+		// blueUpInactive
+		const blueUpInactive = scene.add.image(-22, -40, "arrow-button-blue-inactive");
+		blueUpInactive.scaleX = 0.1;
+		blueUpInactive.scaleY = 0.1;
+		blueUpInactive.angle = -90;
+		blueUpInactive.alpha = 0.5;
+		blueUpInactive.alphaTopLeft = 0.5;
+		blueUpInactive.alphaTopRight = 0.5;
+		blueUpInactive.alphaBottomLeft = 0.5;
+		blueUpInactive.alphaBottomRight = 0.5;
+		this.add(blueUpInactive);
 
-		// blueDown
-		const blueDown = scene.add.rectangle(-21, 47, 110, 128);
-		blueDown.scaleX = 0.25;
-		blueDown.scaleY = 0.25;
-		blueDown.isFilled = true;
-		blueDown.fillColor = 1946367;
-		blueDown.fillAlpha = 0.2;
-		blueDown.isStroked = true;
-		blueDown.strokeColor = 1946367;
-		blueDown.lineWidth = 5;
-		this.add(blueDown);
+		// blueCentreActive
+		const blueCentreActive = scene.add.image(-20, 0, "blue-centre-active");
+		blueCentreActive.scaleX = 0.1;
+		blueCentreActive.scaleY = 0.1;
+		blueCentreActive.alpha = 0;
+		blueCentreActive.alphaTopLeft = 0;
+		blueCentreActive.alphaTopRight = 0;
+		blueCentreActive.alphaBottomLeft = 0;
+		blueCentreActive.alphaBottomRight = 0;
+		this.add(blueCentreActive);
 
-		// blueLeft
-		const blueLeft = scene.add.rectangle(-74, 1, 128, 110);
-		blueLeft.scaleX = 0.25;
-		blueLeft.scaleY = 0.25;
-		blueLeft.isFilled = true;
-		blueLeft.fillColor = 1946367;
-		blueLeft.fillAlpha = 0.2;
-		blueLeft.isStroked = true;
-		blueLeft.strokeColor = 1946367;
-		blueLeft.lineWidth = 5;
-		this.add(blueLeft);
+		// blueCentreInactive
+		const blueCentreInactive = scene.add.image(-20, 0, "blue-centre-inactive");
+		blueCentreInactive.scaleX = 0.1;
+		blueCentreInactive.scaleY = 0.1;
+		blueCentreInactive.alpha = 0.5;
+		blueCentreInactive.alphaTopLeft = 0.5;
+		blueCentreInactive.alphaTopRight = 0.5;
+		blueCentreInactive.alphaBottomLeft = 0.5;
+		blueCentreInactive.alphaBottomRight = 0.5;
+		this.add(blueCentreInactive);
+
+		// orangeCentreActive
+		const orangeCentreActive = scene.add.image(20, 0, "orange-centre-active");
+		orangeCentreActive.scaleX = 0.1;
+		orangeCentreActive.scaleY = 0.1;
+		orangeCentreActive.alpha = 0;
+		orangeCentreActive.alphaTopLeft = 0;
+		orangeCentreActive.alphaTopRight = 0;
+		orangeCentreActive.alphaBottomLeft = 0;
+		orangeCentreActive.alphaBottomRight = 0;
+		this.add(orangeCentreActive);
+
+		// orangeCentreinactive
+		const orangeCentreinactive = scene.add.image(20, 0, "orange-centre-inactive");
+		orangeCentreinactive.scaleX = 0.1;
+		orangeCentreinactive.scaleY = 0.1;
+		orangeCentreinactive.alpha = 0.5;
+		orangeCentreinactive.alphaTopLeft = 0.5;
+		orangeCentreinactive.alphaTopRight = 0.5;
+		orangeCentreinactive.alphaBottomLeft = 0.5;
+		orangeCentreinactive.alphaBottomRight = 0.5;
+		this.add(orangeCentreinactive);
+
+		// orangeUpActive
+		const orangeUpActive = scene.add.image(18, -41, "arrow-button-orange-active");
+		orangeUpActive.scaleX = 0.1;
+		orangeUpActive.scaleY = 0.1;
+		orangeUpActive.angle = -90;
+		orangeUpActive.alpha = 0;
+		orangeUpActive.alphaTopLeft = 0;
+		orangeUpActive.alphaTopRight = 0;
+		orangeUpActive.alphaBottomLeft = 0;
+		orangeUpActive.alphaBottomRight = 0;
+		this.add(orangeUpActive);
+
+		// orangeUpInactive
+		const orangeUpInactive = scene.add.image(18, -41, "arrow-button-orange-inactive");
+		orangeUpInactive.scaleX = 0.1;
+		orangeUpInactive.scaleY = 0.1;
+		orangeUpInactive.angle = -90;
+		orangeUpInactive.alpha = 0.5;
+		orangeUpInactive.alphaTopLeft = 0.5;
+		orangeUpInactive.alphaTopRight = 0.5;
+		orangeUpInactive.alphaBottomLeft = 0.5;
+		orangeUpInactive.alphaBottomRight = 0.5;
+		this.add(orangeUpInactive);
+
+		// orangeDownActive
+		const orangeDownActive = scene.add.image(22, 39, "arrow-button-orange-active");
+		orangeDownActive.scaleX = 0.1;
+		orangeDownActive.scaleY = 0.1;
+		orangeDownActive.angle = 90;
+		orangeDownActive.alpha = 0;
+		orangeDownActive.alphaTopLeft = 0;
+		orangeDownActive.alphaTopRight = 0;
+		orangeDownActive.alphaBottomLeft = 0;
+		orangeDownActive.alphaBottomRight = 0;
+		this.add(orangeDownActive);
+
+		// orangeDownInactive
+		const orangeDownInactive = scene.add.image(22, 39, "arrow-button-orange-inactive");
+		orangeDownInactive.scaleX = 0.1;
+		orangeDownInactive.scaleY = 0.1;
+		orangeDownInactive.angle = 90;
+		orangeDownInactive.alpha = 0.5;
+		orangeDownInactive.alphaTopLeft = 0.5;
+		orangeDownInactive.alphaTopRight = 0.5;
+		orangeDownInactive.alphaBottomLeft = 0.5;
+		orangeDownInactive.alphaBottomRight = 0.5;
+		this.add(orangeDownInactive);
+
+		// orangeRightActive
+		const orangeRightActive = scene.add.image(61, -1, "arrow-button-orange-active");
+		orangeRightActive.scaleX = 0.1;
+		orangeRightActive.scaleY = 0.1;
+		orangeRightActive.alpha = 0;
+		orangeRightActive.alphaTopLeft = 0;
+		orangeRightActive.alphaTopRight = 0;
+		orangeRightActive.alphaBottomLeft = 0;
+		orangeRightActive.alphaBottomRight = 0;
+		this.add(orangeRightActive);
+
+		// orangeRightInactive
+		const orangeRightInactive = scene.add.image(61, -1, "arrow-button-orange-inactive");
+		orangeRightInactive.scaleX = 0.1;
+		orangeRightInactive.scaleY = 0.1;
+		orangeRightInactive.alpha = 0.5;
+		orangeRightInactive.alphaTopLeft = 0.5;
+		orangeRightInactive.alphaTopRight = 0.5;
+		orangeRightInactive.alphaBottomLeft = 0.5;
+		orangeRightInactive.alphaBottomRight = 0.5;
+		this.add(orangeRightInactive);
 
 		this.answer1Backing = answer1Backing;
-		this.answer1Text = answer1Text;
-		this.orangeUp = orangeUp;
-		this.orangeCentre = orangeCentre;
-		this.orangeDown = orangeDown;
-		this.orangeRight = orangeRight;
-		this.blueUp = blueUp;
-		this.blueCentre = blueCentre;
-		this.blueDown = blueDown;
-		this.blueLeft = blueLeft;
+		this.answerText = answerText;
+		this.blueLeftActive = blueLeftActive;
+		this.blueLeftInactive = blueLeftInactive;
+		this.blueDownActive = blueDownActive;
+		this.blueDownInactive = blueDownInactive;
+		this.blueUpActive = blueUpActive;
+		this.blueUpInactive = blueUpInactive;
+		this.blueCentreActive = blueCentreActive;
+		this.blueCentreInactive = blueCentreInactive;
+		this.orangeCentreActive = orangeCentreActive;
+		this.orangeCentreinactive = orangeCentreinactive;
+		this.orangeUpActive = orangeUpActive;
+		this.orangeUpInactive = orangeUpInactive;
+		this.orangeDownActive = orangeDownActive;
+		this.orangeDownInactive = orangeDownInactive;
+		this.orangeRightActive = orangeRightActive;
+		this.orangeRightInactive = orangeRightInactive;
 
 		/* START-USER-CTR-CODE */
     // Write your code here.
@@ -151,15 +255,23 @@ export default class AnswerPrefab extends Phaser.GameObjects.Container {
 	}
 
 	private answer1Backing: Phaser.GameObjects.Rectangle;
-	private answer1Text: Phaser.GameObjects.Text;
-	private orangeUp: Phaser.GameObjects.Rectangle;
-	private orangeCentre: Phaser.GameObjects.Ellipse;
-	private orangeDown: Phaser.GameObjects.Rectangle;
-	private orangeRight: Phaser.GameObjects.Rectangle;
-	private blueUp: Phaser.GameObjects.Rectangle;
-	private blueCentre: Phaser.GameObjects.Ellipse;
-	private blueDown: Phaser.GameObjects.Rectangle;
-	private blueLeft: Phaser.GameObjects.Rectangle;
+	private answerText: Phaser.GameObjects.Text;
+	private blueLeftActive: Phaser.GameObjects.Image;
+	private blueLeftInactive: Phaser.GameObjects.Image;
+	private blueDownActive: Phaser.GameObjects.Image;
+	private blueDownInactive: Phaser.GameObjects.Image;
+	private blueUpActive: Phaser.GameObjects.Image;
+	private blueUpInactive: Phaser.GameObjects.Image;
+	private blueCentreActive: Phaser.GameObjects.Image;
+	private blueCentreInactive: Phaser.GameObjects.Image;
+	private orangeCentreActive: Phaser.GameObjects.Image;
+	private orangeCentreinactive: Phaser.GameObjects.Image;
+	private orangeUpActive: Phaser.GameObjects.Image;
+	private orangeUpInactive: Phaser.GameObjects.Image;
+	private orangeDownActive: Phaser.GameObjects.Image;
+	private orangeDownInactive: Phaser.GameObjects.Image;
+	private orangeRightActive: Phaser.GameObjects.Image;
+	private orangeRightInactive: Phaser.GameObjects.Image;
 
 	/* START-USER-CODE */
 
@@ -169,17 +281,19 @@ export default class AnswerPrefab extends Phaser.GameObjects.Container {
   {
     console.debug(answerInputCombos[currentAnswersComboIndex[answerIndex]]);
     const inputCombo = answerInputCombos[currentAnswersComboIndex[answerIndex]];
-    // this.blueUp.fillAlpha = inputCombo.blue.up ? 1 : 0.2;
-    // this.blueLeft.fillAlpha = inputCombo.blue.left ? 1 : 0.2;
-    // this.blueCentre.fillAlpha = inputCombo.blue.centre ? 1 : 0.2;
-    // this.blueDown.fillAlpha = inputCombo.blue.down ? 1 : 0.2;
-	this.orangeCentre.fillAlpha = 1;
+    this.blueUpActive.alpha = inputCombo.blue.up ? 1 : 0;
+    this.blueLeftActive.alpha = inputCombo.blue.left ? 1 : 0;
+    this.blueCentreActive.alpha = inputCombo.blue.centre ? 1 : 0;
+    this.blueDownActive.alpha = inputCombo.blue.down ? 1 : 0;
+    this.orangeUpActive.alpha = inputCombo.orange.up ? 1 : 0;
+    this.orangeRightActive.alpha = inputCombo.orange.right ? 1 : 0;
+    this.orangeCentreActive.alpha = inputCombo.orange.centre ? 1 : 0;
+    this.orangeDownActive.alpha = inputCombo.orange.down ? 1 : 0;
   }
 
   public setText(text: string) {
-    this.answer1Text.setText(text);
+    this.answerText.setText(text);
   }
-
   /* END-USER-CODE */
 }
 
