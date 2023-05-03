@@ -26,14 +26,6 @@ export default class Game extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// famJam_logo_simplified
-		const famJam_logo_simplified = this.add.image(684, 653, "FamJam-logo-simplified");
-		famJam_logo_simplified.alpha = 0.1;
-		famJam_logo_simplified.alphaTopLeft = 0.1;
-		famJam_logo_simplified.alphaTopRight = 0.1;
-		famJam_logo_simplified.alphaBottomLeft = 0.1;
-		famJam_logo_simplified.alphaBottomRight = 0.1;
-
 		// instructionText
 		const instructionText = this.add.text(452, 138, "", {});
 		instructionText.setOrigin(0.5, 0);

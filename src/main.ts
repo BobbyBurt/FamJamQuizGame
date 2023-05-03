@@ -3,6 +3,7 @@ import Game from './scenes/Game';
 import Preload from './scenes/Preload';
 import PluginTest from 'plugins/PluginTest'
 import ScenePluginTest from './plugins/ScenePluginTest';
+import BGScene from './scenes/BGScene';
 
 window.addEventListener('load', function ()
 {
@@ -48,6 +49,7 @@ window.addEventListener('load', function ()
 	game.scene.add("boot", Boot, true);
 	game.scene.add("preload", Preload);
 	game.scene.add("game", Game);
+	game.scene.add("bg-scene", BGScene);
 });
 
 class Boot extends Phaser.Scene
