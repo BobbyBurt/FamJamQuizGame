@@ -50,7 +50,7 @@
                     "fontFamily": "arial",
                     "fontSize": "50px",
                     "maxLines": 2,
-                    "wordWrapWidth": 700
+                    "wordWrapWidth": 650
                 },
                 {
                     "type": "Rectangle",

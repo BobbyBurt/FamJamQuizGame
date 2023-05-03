@@ -13,6 +13,22 @@
     },
     "displayList": [
         {
+            "type": "Image",
+            "id": "3a706d4e-35cf-4b1f-aadc-e093ea207767",
+            "label": "famJam_logo_simplified",
+            "components": [],
+            "texture": {
+                "key": "FamJam-logo-simplified"
+            },
+            "x": 684,
+            "y": 653,
+            "alpha": 0.1,
+            "alphaTopLeft": 0.1,
+            "alphaTopRight": 0.1,
+            "alphaBottomLeft": 0.1,
+            "alphaBottomRight": 0.1
+        },
+        {
             "type": "Text",
             "id": "e9d8ee39-f699-4a1b-a272-e300801657c7",
             "label": "instructionText",

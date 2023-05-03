@@ -92,6 +92,8 @@ export class InputManager {
       case 1:
         this.currentInput.orange.up = down;
         return "orange-up-" + down;
+      case 2:
+        return "plus-" + down;
       case 3:
         this.currentInput.orange.right = down;
         return "orange-right-" + down;
@@ -107,6 +109,8 @@ export class InputManager {
       case 13:
         this.currentInput.blue.centre = down;
         return "blue-centre-" + down;
+      case 14:
+        return "minus-" + down;
       case 15:
         this.currentInput.blue.down = down;
         return "blue-down-" + down;
@@ -147,6 +151,10 @@ export class InputManager {
       case "x":
         this.currentInput.orange.down = down;
         return "orange-down-" + down;
+      case "=":
+          return "plus-" + down;
+        case "-":
+          return "minus-" + down;
       default:
         return "invalid-input";
     }
@@ -409,13 +417,6 @@ export var answerInputCombos: Array<PadInput> = [
     //    [o] [o]
     blue: { up: false, left: false, centre: false, down: true },
     orange: { up: true, right: false, centre: false, down: true },
-  },
-  {
-    //    [ ] [ ]
-    // [ ][ ] [ ][ ]
-    //    [ ] [ ]
-    blue: { up: false, left: false, centre: false, down: false },
-    orange: { up: false, right: false, centre: false, down: false },
   },
   {
     //    [o] [o]
