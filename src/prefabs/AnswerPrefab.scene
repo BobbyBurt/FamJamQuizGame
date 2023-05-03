@@ -21,7 +21,7 @@
                 {
                     "type": "Rectangle",
                     "id": "e42325a3-af51-4e36-8d03-a3c3ef331b33",
-                    "label": "answer1Backing",
+                    "label": "answerBacking",
                     "scope": "CLASS",
                     "components": [],
                     "x": -41,

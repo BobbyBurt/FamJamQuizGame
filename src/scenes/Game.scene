@@ -387,5 +387,17 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 3
-    }
+    },
+    "lists": [
+        {
+            "id": "4dce4528-e9d4-4328-aefc-c02631e6df03",
+            "label": "answerPrefabArray",
+            "objectIds": [
+                "f3b1c468-ac77-447d-8aad-cb142b6d8e39",
+                "fc54e52d-33a6-4064-afc7-cc53577abb12",
+                "a9a7dfb6-49eb-4cd5-8863-8b376f4ab239",
+                "92174602-463f-4ea5-98d1-524ca4c262ea"
+            ]
+        }
+    ]
 }

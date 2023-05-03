@@ -29,8 +29,6 @@ export class InputManager {
 
   constructor(scene: Phaser.Scene) {
     this.scene = scene;
-    currentAnswersComboIndex = new Array(4);
-    currentAnswersComboIndex = [0, 1, 2, 3];
     this.setupInputEvents();
     1;
   }
@@ -155,24 +153,24 @@ export class InputManager {
   }
 
   public setAnswerCombos() {
-    currentAnswersComboIndex[0] = Phaser.Math.RND.integerInRange(
-      0,
-      answerInputCombos.length - 1
-    );
-    currentAnswersComboIndex[1] = Phaser.Math.RND.integerInRange(
-      0,
-      answerInputCombos.length - 1
-    );
-    currentAnswersComboIndex[2] = Phaser.Math.RND.integerInRange(
-      0,
-      answerInputCombos.length - 1
-    );
-    currentAnswersComboIndex[3] = Phaser.Math.RND.integerInRange(
-      0,
-      answerInputCombos.length - 1
-    );
+    // currentAnswersComboIndex[0] = Phaser.Math.RND.integerInRange(
+    //   0,
+    //   answerInputCombos.length - 1
+    // );
+    // currentAnswersComboIndex[1] = Phaser.Math.RND.integerInRange(
+    //   0,
+    //   answerInputCombos.length - 1
+    // );
+    // currentAnswersComboIndex[2] = Phaser.Math.RND.integerInRange(
+    //   0,
+    //   answerInputCombos.length - 1
+    // );
+    // currentAnswersComboIndex[3] = Phaser.Math.RND.integerInRange(
+    //   0,
+    //   answerInputCombos.length - 1
+    // );
 
-    console.debug(`new answer combo indexes: ${currentAnswersComboIndex}`);
+    Phaser.Math.RND.shuffle(answerInputCombos);
 
     // RND needs to make sure the same combos aren't picked!
   }
@@ -181,19 +179,21 @@ export class InputManager {
    * Compares `currentInput` to active answer combos & ready input combo
    */
   private checkInputCombos() {
+    if (this.compareInput(this.currentInput, readyInputCombo)) {
+      console.debug("ready!");
+      this.scene.game.events.emit("ready-input");
+      return;
+    }
     for (let i = 0; i < 4; i++) {
       if (
         this.compareInput(
           this.currentInput,
-          answerInputCombos[currentAnswersComboIndex[i]]
+          answerInputCombos[i]
         )
       ) {
         console.debug(`answer ${i} inputed!!`);
+        this.scene.game.events.emit(`answer-${i}`)
       }
-    }
-    if (this.compareInput(this.currentInput, readyInputCombo)) {
-      console.debug("ready!");
-      this.scene.game.events.emit("input-ready");
     }
   }
 
@@ -219,9 +219,6 @@ export var readyInputCombo: PadInput = {
   blue: { up: false, left: false, centre: true, down: false },
   orange: { up: false, right: false, centre: true, down: false },
 };
-
-/** Index of answerInputCombos */
-export var currentAnswersComboIndex: Array<number>;
 
 export var answerInputCombos: Array<PadInput> = [
   {
