@@ -30,13 +30,13 @@ export default class Game extends Phaser.Scene {
 		const instructionText = this.add.text(452, 138, "", {});
 		instructionText.setOrigin(0.5, 0);
 		instructionText.text = "STAND ON THE SQUARE ICONS \nTO BEGIN QUESTION";
-		instructionText.setStyle({ "align": "center", "fontFamily": "arial", "fontSize": "40px", "fontStyle": "bold" });
+		instructionText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px", "fontStyle": "bold" });
 
 		// questionNumberText
 		const questionNumberText = this.add.text(960, 43, "", {});
 		questionNumberText.setOrigin(0.5, 0);
 		questionNumberText.text = "Question 1";
-		questionNumberText.setStyle({ "align": "center", "fontFamily": "arial", "fontSize": "40px", "fontStyle": "bold" });
+		questionNumberText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px", "fontStyle": "bold" });
 
 		// inputFeedback
 		const inputFeedback = this.add.container(452, 572);
@@ -269,7 +269,7 @@ export default class Game extends Phaser.Scene {
 
     this.editorCreate();
 
-    // json loading test
+    // json loading
     this.quizData = this.cache.json.get("test-quiz");
 
     this.inputManager = new InputManager(this);
@@ -280,6 +280,12 @@ export default class Game extends Phaser.Scene {
         this.setAnswers();
       }
     });
+
+	// question select input
+    this.game.events.on("space-true", () => {
+		phase = 'waiting';
+		// move UI
+	  });
 
     // question select input
     this.game.events.on("plus-false", () => {
@@ -442,4 +448,4 @@ export default class Game extends Phaser.Scene {
 
 /* END OF COMPILED CODE */
 
-export var phase: "title"| "waiting" | "deciding" | "drumroll" | "reveal" = "waiting";
+export var phase: "title"| "waiting" | "deciding" | "drumroll" | "reveal" = "title";

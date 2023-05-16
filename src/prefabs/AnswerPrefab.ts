@@ -32,7 +32,7 @@ export default class AnswerPrefab extends Phaser.GameObjects.Container {
 		const answerText = scene.add.text(124, 40, "", {});
 		answerText.setOrigin(0, 0.5);
 		answerText.text = "Lorem ipsum dolor sit amet, ";
-		answerText.setStyle({ "fontFamily": "arial", "fontSize": "50px", "maxLines":2});
+		answerText.setStyle({ "fontFamily": "readex", "fontSize": "50px", "maxLines":2});
 		answerText.setWordWrapWidth(650);
 		this.add(answerText);
 

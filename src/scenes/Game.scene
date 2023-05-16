@@ -23,7 +23,7 @@
             "originX": 0.5,
             "text": "STAND ON THE SQUARE ICONS \nTO BEGIN QUESTION",
             "align": "center",
-            "fontFamily": "arial",
+            "fontFamily": "readex",
             "fontSize": "40px",
             "fontStyle": "bold"
         },
@@ -38,7 +38,7 @@
             "originX": 0.5,
             "text": "Question 1",
             "align": "center",
-            "fontFamily": "arial",
+            "fontFamily": "readex",
             "fontSize": "40px",
             "fontStyle": "bold"
         },

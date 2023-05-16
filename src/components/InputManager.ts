@@ -155,6 +155,8 @@ export class InputManager {
           return "plus-" + down;
         case "-":
           return "minus-" + down;
+        case " ":
+          return "space-" + down;
       default:
         return "invalid-input";
     }

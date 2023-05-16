@@ -47,7 +47,7 @@
                     "y": 40,
                     "originY": 0.5,
                     "text": "Lorem ipsum dolor sit amet, ",
-                    "fontFamily": "arial",
+                    "fontFamily": "readex",
                     "fontSize": "50px",
                     "maxLines": 2,
                     "wordWrapWidth": 650
