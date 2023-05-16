@@ -318,6 +318,9 @@ export default class Game extends Phaser.Scene {
 
   setCurrentQuestion(index: number)
   {
+    if (phase !== 'waiting')
+      return;
+
     const quizLength = this.quizData.questions.length;
 
     // set within range
@@ -368,7 +371,7 @@ export default class Game extends Phaser.Scene {
     })
 
     // set answer button combos
-    this.inputManager.setAnswerCombos();
+    this.inputManager.setAnswerCombos(this.currentQuestion);
     this.answerPrefabArray[this.answerIndexToPrefabMap[0]].setButtonCombo(0);
     this.answerPrefabArray[this.answerIndexToPrefabMap[1]].setButtonCombo(1);
     this.answerPrefabArray[this.answerIndexToPrefabMap[2]].setButtonCombo(2);
@@ -411,10 +414,9 @@ export default class Game extends Phaser.Scene {
         this.time.addEvent({
           delay: 4000,
           callback: () => {
-            this.setCurrentQuestion(this.currentQuestion + 1);
-
             this.setWaiting();
-          },
+			this.setCurrentQuestion(this.currentQuestion + 1);
+		},
         });
       },
     });
@@ -440,4 +442,4 @@ export default class Game extends Phaser.Scene {
 
 /* END OF COMPILED CODE */
 
-export var phase: "waiting" | "deciding" | "drumroll" | "reveal" = "waiting";
+export var phase: "title"| "waiting" | "deciding" | "drumroll" | "reveal" = "waiting";

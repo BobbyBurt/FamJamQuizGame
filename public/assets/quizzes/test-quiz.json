@@ -2,83 +2,121 @@
   "questions":
     [
       {
+        "week": 1,
+        "question": "Which of these is NOT an attribute of God?",
         "answers": [
-          "Jesus story",
-          "Instruction book",
-          "Good news",
-          "A type of music"
+          "Untruthful",
+          "Merciful",
+          "Gracious",
+          "Truthful"
         ]
       },
       {
+        "question": "In Exodus 34:4, where did Moses meet with The Lord?",
         "answers": [
-          "Cursed by God",
-          "Unstoppable",
-          "Like a pirate",
-          "Scary ghost! ooOOooh!"
+          "Mount Sinai",
+          "The Dualing Peaks",
+          "Eygpt",
+          "The Nile River"
+        ]
+      },
+{
+        "question": "This attribute of God is why He must punish the guilty",
+        "answers": [
+          "Just",
+          "Longsuffering",
+          "Truthful",
+          "Gracious"
+        ]
+      },
+{
+        "question": "What is the meaning of the word 'propitiation'?",
+        "answers": [
+          "Satisfied the punishment for sin",
+          "Forgiveness of sin",
+          "Manifested or showed",
+          "Disobedience to God"
         ]
       },
       {
+        "question": "Which of the following is the correct order of the gospels?",
         "answers": [
-          "Bereans",
-          "Galatians",
-          "Christians",
-          "Egyptians"
+          "Mathew, Mark, Luke, John",
+          "Mark, Luke, John, Acts",
+          "Luke, Mathew, John, Mark",
+          "John, Mathew, Luke, Acts"
+        ]
+      },
+{
+        "question": "What does the word 'abounding' mean?",
+        "answers": [
+          "overflowing or full",
+          "very high above",
+          "rules and limitations",
+          "pouring water"
+        ]
+      },
+{
+        "question": "What word means 'endlessly patient'?",
+        "answers": [
+          "Longsuffering",
+          "Gracious",
+          "Infinite-waiting",
+          "Manifest"
+        ]
+      },
+{
+        "question": "What does 'this' sign language mean?",
+        "answers": [
+          "Dog",
+          "Cat",
+          "Leg",
+          "Slap"
         ]
       },
       {
+        "question": "In Exodus 3:14, what did God say to Moses?",
         "answers": [
-          "Searched the scriptures",
-          "They prayed",
-          "They asked Jesus",
-          "Online fact checkers"
+          "I AM WHO I AM",
+					"I will certainly be with you.",
+					"Where you stand is Holy ground.",
+					"I will send Pharaoh that you may bring My people,"
         ]
       },
       {
+        "question": "In Romans, God told us that there is a way that everyone can know He exists. What is that?",
         "answers": [
-          "this is a correct answer",
-          "a a a a a a a a a a a a a a a a a a a a",
-          "this is the 2nd incorrect answer",
-          "asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf"
+          "Through His creation",
+					"Just because",
+					"The Bible",
+					"The stars of the heavens"
         ]
       },
       {
+        "question": "How many books of the Bible are there?",
         "answers": [
-          "this is a correct answer",
-          "Cursed by God",
-          "this is the 2nd incorrect answer",
-          "this is the 3rd incorrect answer"
+          "66",
+          "39",
+          "27",
+          "74"
         ]
       },
       {
+        "question": "Which of the following is NOT an ingredient we used to make Quesadillias?",
         "answers": [
-          "this is a correct answer",
-          "Cursed by God",
-          "this is the 2nd incorrect answer",
-          "this is the 3rd incorrect answer"
+          "Lettuce",
+          "Tomatoes",
+          "Peppers",
+          "Corn"
         ]
       },
       {
+        "question": "What are the three steps we follow when we study a Bible passage?",
         "answers": [
-          "this is a correct answer",
-          "Cursed by God",
-          "this is the 2nd incorrect answer",
-          "this is the 3rd incorrect answer"
-        ]
-      },
-      {
-        "answers": [
-          "this is a correct answer",
-          "Cursed by God",
-          "this is the 2nd incorrect answer",
-          "this is the 3rd incorrect answer"
-        ]
-      },
-      {
-        "answers": [
-          "this is a correct answer",
-          "Cursed by God",
-          "this is the 2nd incorrect answer",
-          "this is the 3rd incorrect answer"
+          "Observe, Interpret, Apply",
+          "Read, think, say",
+          "Read, interpret, share",
+          "Observe, interpret, forget"
         ]
       }
     ],

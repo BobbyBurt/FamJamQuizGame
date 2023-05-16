@@ -160,7 +160,7 @@ export class InputManager {
     }
   }
 
-  public setAnswerCombos() {
+  public setAnswerCombos(currentQuestion: number) {
     // currentAnswersComboIndex[0] = Phaser.Math.RND.integerInRange(
     //   0,
     //   answerInputCombos.length - 1
@@ -178,6 +178,15 @@ export class InputManager {
     //   answerInputCombos.length - 1
     // );
 
+    if (currentQuestion === 0 || currentQuestion === 1)
+      answerInputCombos = answerInput2Combos;
+    else if (currentQuestion === 2 || currentQuestion === 3)
+      answerInputCombos = answerInput3Combos;
+    else if (currentQuestion === 4)
+      answerInputCombos = answerInput4Combos;
+    else
+      answerInputCombos = (Phaser.Math.RND.between(0, 1) > .5) ? answerInput3Combos : answerInput4Combos;
+      
     Phaser.Math.RND.shuffle(answerInputCombos);
 
     // RND needs to make sure the same combos aren't picked!
@@ -228,7 +237,8 @@ export var readyInputCombo: PadInput = {
   orange: { up: false, right: false, centre: true, down: false },
 };
 
-export var answerInputCombos: Array<PadInput> = [
+export var answerInputCombos: Array<PadInput> = [];
+var answerInput2Combos: Array<PadInput> = [
   {
     //    [ ] [o]
     // [ ][ ] [ ][ ]
@@ -333,7 +343,8 @@ export var answerInputCombos: Array<PadInput> = [
     //    [ ] [o]
     blue: { up: false, left: false, centre: false, down: false },
     orange: { up: true, right: false, centre: false, down: true },
-  },
+  }];
+  var answerInput3Combos: Array<PadInput> = [
   {
     //    [o] [ ]
     // [ ][o] [ ][ ]
@@ -390,13 +401,13 @@ export var answerInputCombos: Array<PadInput> = [
     blue: { up: false, left: false, centre: true, down: false },
     orange: { up: false, right: true, centre: false, down: true },
   },
-  {
-    //    [ ] [ ]
-    // [o][o] [ ][o]
-    //    [ ] [ ]
-    blue: { up: false, left: true, centre: true, down: false },
-    orange: { up: false, right: true, centre: false, down: false },
-  },
+  // {
+  //   //    [ ] [ ]
+  //   // [o][o] [ ][o]
+  //   //    [ ] [ ]
+  //   blue: { up: false, left: true, centre: true, down: false },
+  //   orange: { up: false, right: true, centre: false, down: false },
+  // },
   {
     //    [ ] [ ]
     // [o][ ] [o][o]
@@ -473,7 +484,7 @@ export var answerInputCombos: Array<PadInput> = [
     //    [ ] [ ]
     blue: { up: false, left: true, centre: false, down: false },
     orange: { up: true, right: true, centre: false, down: false },
-  },
+  }];
   // {
   //   //    [ ] [ ]
   //   // [ ][ ] [ ][ ]
@@ -481,19 +492,20 @@ export var answerInputCombos: Array<PadInput> = [
   //   blue: { up: false, left: false, centre: false, down: false },
   //   orange: { up: false, right: false, centre: false, down: false },
   // },
-  {
-    //    [ ] [ ]
-    // [o][o] [o][o]
-    //    [ ] [ ]
-    blue: { up: false, left: true, centre: true, down: false },
-    orange: { up: false, right: true, centre: true, down: false },
-  },
+  // {
+  //   //    [ ] [ ]
+  //   // [o][o] [o][o]
+  //   //    [ ] [ ]
+  //   blue: { up: false, left: true, centre: true, down: false },
+  //   orange: { up: false, right: true, centre: true, down: false },
+  // },
+  var answerInput4Combos: Array<PadInput> = [
   {
     //    [o] [ ]
     // [o][ ] [o][ ]
     //    [o] [ ]
-    blue: { up: false, left: false, centre: false, down: false },
-    orange: { up: false, right: false, centre: false, down: false },
+    blue: { up: true, left: true, centre: false, down: true },
+    orange: { up: false, right: true, centre: false, down: false },
   },
   {
     //    [ ] [o]
@@ -530,13 +542,13 @@ export var answerInputCombos: Array<PadInput> = [
     blue: { up: true, left: false, centre: false, down: true },
     orange: { up: false, right: true, centre: true, down: false },
   },
-  {
-    //    [ ] [c]
-    // [o][o] [ ][ ]
-    //    [ ] [c]
-    blue: { up: false, left: true, centre: true, down: false },
-    orange: { up: true, right: false, centre: false, down: true },
-  },
+  // {
+  //   //    [ ] [c]
+  //   // [o][o] [ ][ ]
+  //   //    [ ] [c]
+  //   blue: { up: false, left: true, centre: true, down: false },
+  //   orange: { up: true, right: false, centre: false, down: true },
+  // },
   {
     //    [ ] [o]
     // [ ][ ] [o][o]
@@ -544,13 +556,13 @@ export var answerInputCombos: Array<PadInput> = [
     blue: { up: false, left: false, centre: false, down: false },
     orange: { up: true, right: true, centre: true, down: true },
   },
-  {
-    //    [o] [ ]
-    // [o][o] [ ][ ]
-    //    [o] [ ]
-    blue: { up: true, left: true, centre: true, down: true },
-    orange: { up: false, right: false, centre: false, down: false },
-  },
+  // {
+  //   //    [o] [ ]
+  //   // [o][o] [ ][ ]
+  //   //    [o] [ ]
+  //   blue: { up: true, left: true, centre: true, down: true },
+  //   orange: { up: false, right: false, centre: false, down: false },
+  // },
   {
     //    [o] [o]
     // [ ][o] [o][ ]
