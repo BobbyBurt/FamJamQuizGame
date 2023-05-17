@@ -30,13 +30,13 @@ export default class Game extends Phaser.Scene {
 		const instructionText = this.add.text(452, 138, "", {});
 		instructionText.setOrigin(0.5, 0);
 		instructionText.text = "STAND ON THE SQUARE ICONS \nTO BEGIN QUESTION";
-		instructionText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px", "fontStyle": "bold" });
+		instructionText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px" });
 
 		// questionNumberText
 		const questionNumberText = this.add.text(960, 43, "", {});
 		questionNumberText.setOrigin(0.5, 0);
 		questionNumberText.text = "Question 1";
-		questionNumberText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px", "fontStyle": "bold" });
+		questionNumberText.setStyle({ "align": "center", "fontFamily": "readex", "fontSize": "40px" });
 
 		// inputFeedback
 		const inputFeedback = this.add.container(452, 572);
@@ -255,11 +255,16 @@ export default class Game extends Phaser.Scene {
   private currentQuestion = 0;
   private currentQuestionTextTween:Phaser.Tweens.Tween;
 
+  // backings
   private buttonBackings: Array<Phaser.GameObjects.Rectangle>;
   private answerBackings: Array<Phaser.GameObjects.Rectangle>;
 
+  // plugins
   private scenePluginMap!: ScenePluginTest;
   private NGIOPlugin!: PluginTest;
+
+  // BG
+  private BGLogos: Phaser.GameObjects.Group;
 
   /** Array of numbers 0-3 in random order, correlating answer index to answerPrefabArray index. `answerIndexToPrefabMap[0] points to the prefab with the correct answer. */
   private answerIndexToPrefabMap = [0, 1, 2, 3];
@@ -317,10 +322,31 @@ export default class Game extends Phaser.Scene {
       }
     });
 
+	// BG
+	this.BGLogos = this.add.group({});
+	this.BGLogos.createMultiple({
+		key: ['arrow-button-blue-inactive', 'arrow-button-blue-active', 'arrow-button-orange-inactive', 'arrow-button-orange-active'],
+		randomKey: true,
+		quantity: 4,
+		// setScale: {x: .5, y: .5},
+		setAlpha: {value: .1}
+	})
+	this.cameras.main.setBounds(0, 0, this.cameras.main.width, this.cameras.main.height);
+	Phaser.Actions.RandomRectangle(this.BGLogos.getChildren(), this.cameras.main.getBounds());
+	this.BGLogos.setDepth(-99);
+
     this.setWaiting();
   }
 
-  update(time: number, delta: number): void {}
+  update(time: number, delta: number): void {
+	this.BGLogos.getChildren().forEach((member: any, i: number) => {
+		let logo = member as Phaser.GameObjects.Image;
+		logo.setX(logo.x + .3 +(.1 * i));
+		// logo.setY(logo.y + .2 +(.1 * i));
+	});
+
+	Phaser.Actions.WrapInRectangle(this.BGLogos.getChildren(), this.cameras.main.getBounds(), 250);
+  }
 
   setCurrentQuestion(index: number)
   {

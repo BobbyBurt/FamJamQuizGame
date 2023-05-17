@@ -24,8 +24,7 @@
             "text": "STAND ON THE SQUARE ICONS \nTO BEGIN QUESTION",
             "align": "center",
             "fontFamily": "readex",
-            "fontSize": "40px",
-            "fontStyle": "bold"
+            "fontSize": "40px"
         },
         {
             "type": "Text",
@@ -39,8 +38,7 @@
             "text": "Question 1",
             "align": "center",
             "fontFamily": "readex",
-            "fontSize": "40px",
-            "fontStyle": "bold"
+            "fontSize": "40px"
         },
         {
             "type": "Container",

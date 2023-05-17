@@ -56,6 +56,11 @@
                 "key": "FamJam-logo-simplified"
             },
             {
+                "url": "assets/FamJam-logo-simplified-2.png",
+                "type": "image",
+                "key": "FamJam-logo-simplified-2"
+            },
+            {
                 "url": [
                     "assets/audio/2-10 Oh No!.mp3"
                 ],

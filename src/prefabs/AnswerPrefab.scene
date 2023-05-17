@@ -49,6 +49,7 @@
                     "text": "Lorem ipsum dolor sit amet, ",
                     "fontFamily": "readex",
                     "fontSize": "50px",
+                    "fontStyle": "bold",
                     "maxLines": 2,
                     "wordWrapWidth": 650
                 },
