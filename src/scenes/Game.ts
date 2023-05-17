@@ -329,7 +329,7 @@ export default class Game extends Phaser.Scene {
 		randomKey: true,
 		quantity: 4,
 		// setScale: {x: .5, y: .5},
-		setAlpha: {value: .1}
+		setAlpha: {value: .1},
 	})
 	this.cameras.main.setBounds(0, 0, this.cameras.main.width, this.cameras.main.height);
 	Phaser.Actions.RandomRectangle(this.BGLogos.getChildren(), this.cameras.main.getBounds());
@@ -441,6 +441,9 @@ export default class Game extends Phaser.Scene {
 
         this.sound.play(answer === 0 ? "correct" : "incorrect");
 
+		this.BGLogos.setTint((answer === 0 ? 0x4dff4d : 0xff6666));
+		this.BGLogos.setAlpha((answer === 0 ? .3 : .2));
+
         phase = "reveal";
 
         this.time.addEvent({
@@ -448,6 +451,12 @@ export default class Game extends Phaser.Scene {
           callback: () => {
             this.setWaiting();
 			this.setCurrentQuestion(this.currentQuestion + 1);
+
+			this.BGLogos.setAlpha(.1)
+			this.BGLogos.getChildren().forEach((element) => {
+				let logo = element as Phaser.GameObjects.Image;
+				logo.clearTint();
+			});
 		},
         });
       },
